@@ -12,6 +12,8 @@ import { GrupoService } from '../service/grupo.service';
 })
 export class MenuComponent implements OnInit {
 
+  idUser = environment.idUsuario
+
   grupo: Grupo = new Grupo()
   nome = environment.nomeUsuario
   foto = environment.urlImagemUsuario
@@ -29,7 +31,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.larguraTela = window.innerWidth
     this.atribuirContainer()
-    console.log(this.nomeContainer)
+    console.log(this.idUser)
   }
 
   cadastrar() {

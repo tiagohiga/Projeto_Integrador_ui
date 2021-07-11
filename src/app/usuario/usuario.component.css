@@ -1,0 +1,33 @@
+.img-perfil{
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.container-img{
+    position: relative;
+}
+
+.container-img img{
+    display: block;
+    margin: 0 auto;
+}
+
+.container-img .fa-cog{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.fs-10{
+    font-size: 10pt;
+}
+
+.fs-16{
+    font-size: 16pt;
+}
+
+.fs-26{
+    font-size: 26pt;
+}
