@@ -1,53 +1,146 @@
-<nav class="navbar navbar-expand-lg navbar-light bg">
-  
-    <div class="collapse navbar-collapse" id="foto">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <img src="https://i.imgur.com/bNEtNdv.jpg" alt="Imagem Usuario" width="50px" height="50px" class="img-fluid rounded-circle">
-        </li>
-        <li class="nav-item">
-          <p class="m-3">Nome Usuario</p>
-        </li>
-      </ul>
-    </div>
-  <div class="row d-flex pr-5">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<!-- Menu oficial-->
+<div class="bg">
+  <div class="{{this.nomeContainer}}">
+    <div class="navbar navbar-expand-lg py-0">
 
-  </div>
+      <a class="navbar-brand mt-2" routerLink='/inicio' *ngIf='this.divVisivel'>
+        <img class="img-fluid tamanho-logo rounded-circle imglogo" src="https://i.imgur.com/pwFJe15.png"
+          alt="Logo da Salutem">
+      </a>
 
-    <div>
-      <a class="p-5 navbar-brand" href="#">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Notificação<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Mensagem</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Grupos
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+      <div class="mr-auto esconder-busca py-1">
+        <form class="form-inline my-lg-1">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
+                  aria-hidden="true"></i>
+              </button>
+            </div>
+            <input class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
+              aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-light borda border-left-0 border" type="button"><i class="fa fa-times"
+                  aria-hidden="true" (click)='esconderPesquisa()'></i>
+              </button>
+            </div>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Sair</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        </form>
+      </div>
 
-  
+      <div class="mr-auto exibir-buscador py-1">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
+                aria-hidden="true" (click)='mostrarBusca()'></i>
+            </button>
+          </div>
+          <input class="form-control borda teste" type="input" placeholder="Procurar..." aria-label="Search"
+            *ngIf='this.buscaVisivel'>
+          <div class="input-group-append">
+            <button class="btn btn-light borda border-left-0 border" type="button" *ngIf='this.buscaVisivel'
+              (click)='esconderPesquisa()'><i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="ml-auto" *ngIf='this.divVisivel'>
+        <ul class="navbar-nav list-inline">
+          <div class="d-flex align-items-end">
+            <li class="list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao" href="#">
+                <i class="fa fa-envelope-o fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Mensagens</span>
+              </a>
+            </li>
+
+            <li class="nav-item dropdown list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-users fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Grupos</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/grupo">Seus Grupos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" data-toggle="modal" data-target="#ExemploModalCentralizado">Novo Grupo</a>
+              </div>
+            </li>
+
+
+            <!--<i class="fa fa-user fs-16 aumentar-icone text-dark " aria-hidden="true"></i>-->
+            <li class="nav-item dropdown list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
+                <span class="fs-10 esconder-texto text-dark">Eu</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/user', idUser]">Meu Perfil</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Outro Link</a>
+              </div>
+            </li>
+            
+
+            <li class="list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao" (click)="sair()">
+                <i class="fa fa-sign-out fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Sair</span>
+              </a>
+            </li>
+
+          </div>
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
+  aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Criar novo grupo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cancelar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input [(ngModel)]="grupo.temaGrupo" type="text" class="form-control" id="nome"
+            placeholder="Digite o nome do grupo">
+        </div>
+
+        <div class="form-group">
+          <label for="especialidade">Especialidade</label>
+          <input [(ngModel)]="grupo.categoriaGrupo" type="text" class="form-control" id="especialidade"
+            placeholder="Digite sua especialidade">
+        </div>
+
+        <div class="form-group">
+          <label for="imagem">Imagem</label>
+          <input [(ngModel)]="grupo.urlImagemGrupo" type="text" class="form-control" id="imagem"
+            placeholder="Digite a URL da imagem">
+        </div>
+
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea name="descricao" [(ngModel)]="grupo.descricaoGrupo" class="form-control" id="descricao" cols="30"
+            rows="5"></textarea>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal ">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="cadastrar()">Criar</button>
+      </div>
+    </div>
+  </div>
+</div>

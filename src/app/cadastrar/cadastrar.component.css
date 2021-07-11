@@ -2,3 +2,19 @@
     background-color: rgba(12, 130, 185,0.3);
     min-height: 100vh;
 }
+
+.fs{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40pt;
+}
+
+.bgc{
+    background-color: rgba(240, 243, 243, 0.561);
+    width: 530px;
+}
+
+.input-crm{
+    visibility: hidden;
+}
+
+

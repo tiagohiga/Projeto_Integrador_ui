@@ -1,4 +1,78 @@
 .bg
 {
-    background-color: rgba(12,130,185,0.3) ;
+    background:  -webkit-linear-gradient(right, #3699eb80 -5%, #206EAF 150%);
+
+}
+
+
+a{
+    cursor: pointer;
+}
+
+.fs-10{
+    font-size: 10pt;
+}
+
+.fs-16{
+    font-size: 16pt;
+}
+
+.botao:hover{
+    opacity: 0.5;
+}
+
+@media screen and (min-width: 768px){
+    .bordainput{
+        width: 19rem;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px){
+    .esconder-texto{
+        display: none;
+    }
+
+    .aumentar-img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .aumentar-icone{
+        font-size: 24pt;
+        margin-right: 10pt;
+    }
+}
+
+
+@media screen and (min-width: 592px) {
+    .exibir-buscador{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 592px) {
+    .esconder-busca{
+        display: none;
+    }
+}
+
+.borda{
+    border-radius: 33px;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+}
+
+.img-usuario{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+.imglogo{
+    width: 60px;
+    height: 60px;
+    align-items: flex-end;
+    object-fit: cover;
 }

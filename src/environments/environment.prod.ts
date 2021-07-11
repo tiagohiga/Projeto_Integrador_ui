@@ -1,3 +1,10 @@
 export const environment = {
-  production: true
+  production: true,
+    idUsuario: 0,
+    nomeUsuario: "",
+    emailUsuario: "",
+    senhaUsuario: "",
+    tokenUsuario: "",
+    crmUsuario: "",
+    urlImagemUsuario: ""
 };

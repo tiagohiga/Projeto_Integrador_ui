@@ -1,0 +1,34 @@
+<div class="container my-3 shadow">
+    <div class="row d-flex justify-content-center bg">
+        <div class="">
+            <h1>Lista de Grupos</h1>
+        </div>
+        <div class="col-md-12">
+            <div class="card mt-3 mb-3" *ngFor='let item of listaGrupos'>
+                <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem de capa do card">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.temaGrupo}}</h5>
+                            <p class="card-text">{{item.descricaoGrupo}}</p>
+                            <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-end mr-2">
+                            <button class="btn btn-outline-success mr-3">Entrar</button>
+                            <button class="btn btn-outline-info mr-3"
+                             [routerLink]="['/grupo-editar', item.idGrupo]" >Atualizar</button>
+                            <button class="btn btn-danger"
+                            (click)="deletarGrupo(item.idGrupo)">Deletar</button>
+                        </div>
+                        
+                            
+                    
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
