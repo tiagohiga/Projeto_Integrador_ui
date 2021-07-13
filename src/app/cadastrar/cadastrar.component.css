@@ -1,24 +1,27 @@
-.bg{
+img.bg {
 
-    height: 100vh;
+    min-height: 100%;
+    min-width: 1024px;
+  
 
-    background-image: url(https://i.imgur.com/9wjFpDi.png);
-    background-repeat: no-repeat;
-    background-size: 180pc;
-    background-position: center;
-    background-attachment: relative;
-    
-}
+    width: 100%;
+    height: auto;
+  
+
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  @media screen and (max-width: 1024px){
+    img.bg {
+      left: 50%;
+      margin-left: -512px;
+    }
+  }
 
 
-.fs-40{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40pt;
-}
 
-.fs-15{
-    font-size: 15pt;
-}
 
 .bgc{
     background-color: rgb(255, 255, 255);
@@ -29,8 +32,17 @@
     border-style: double;
 }
 
-.input-crm{
-    visibility: hidden;
+.fs-40{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40pt;
+}
+
+.fs-15{
+    font-size: 15pt;
+}
+
+.borda{
+    border-radius: 20px;
 }
 
 .imglogo{

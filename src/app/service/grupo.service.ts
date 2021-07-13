@@ -46,5 +46,6 @@ export class GrupoService {
       return this.http.delete(`https://rssalutem.herokuapp.com/grupo/deletar/${id}`, this.token)
       
     }
+    
 
 }
