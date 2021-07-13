@@ -8,15 +8,16 @@
           alt="Logo da Salutem">
       </a>
 
+      <!--Pesquisar grande-->
       <div class="mr-auto esconder-busca py-1">
         <form class="form-inline my-lg-1">
           <div class="input-group">
             <div class="input-group-prepend">
               <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
-                  aria-hidden="true"></i>
+                  aria-hidden="true" (click)="pesquisarTema()"></i>
               </button>
             </div>
-            <input class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
+            <input [(ngModel)]='pesquisaTema' name="pesquisa" class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
               aria-label="Search">
             <div class="input-group-append">
               <button class="btn btn-light borda border-left-0 border" type="button"><i class="fa fa-times"
@@ -27,6 +28,7 @@
         </form>
       </div>
 
+      <!--Pesquisar pequena-->
       <div class="mr-auto exibir-buscador py-1">
         <div class="input-group">
           <div class="input-group-prepend">
@@ -34,7 +36,7 @@
                 aria-hidden="true" (click)='mostrarBusca()'></i>
             </button>
           </div>
-          <input class="form-control borda teste" type="input" placeholder="Procurar..." aria-label="Search"
+          <input [(ngModel)]='pesquisaTema' (keydown.enter)='pesquisarTema()' class="form-control borda teste" name="pesquisaMenor" type="input" placeholder="Procurar..." aria-label="Search"
             *ngIf='this.buscaVisivel'>
           <div class="input-group-append">
             <button class="btn btn-light borda border-left-0 border" type="button" *ngIf='this.buscaVisivel'
@@ -139,7 +141,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal ">Cancelar</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="cadastrar()">Criar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="criarNovoGrupo()">Criar</button>
       </div>
     </div>
   </div>

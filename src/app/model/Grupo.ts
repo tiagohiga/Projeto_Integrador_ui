@@ -7,6 +7,6 @@ export class Grupo{
     public categoriaGrupo: string
     public descricaoGrupo: string
     public urlImagemGrupo: string
-    public usuario : Usuario[]
-    public postagem : Postagem[]
+    public listaDeUsuarios : Usuario[]
+    public listaDePostagens : Postagem[]
 }

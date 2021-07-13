@@ -4,6 +4,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.component';
 import { GrupoEditarComponent } from './editar/grupo-editar/grupo-editar.component';
 import { EntrarComponent } from './entrar/entrar.component';
+import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { GrupoComponent } from './grupo/grupo.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { UsuarioComponent } from './usuario/usuario.component';
@@ -17,8 +18,10 @@ const routes: Routes = [
 
   {path: "grupo-editar/:id", component: GrupoEditarComponent},
   {path: "grupo-deletar/:id", component: GrupoDeletarComponent},
+  {path: "grupos/:id", component: GrupoPaginaComponent},
+  
+  {path: "grupo/:tema", component: GrupoComponent}
 
-  {path: "grupo", component: GrupoComponent}
 ];
 
 @NgModule({

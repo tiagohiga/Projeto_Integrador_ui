@@ -1,0 +1,13 @@
+.capa-grupo{
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 300px;
+}
+
+.cursor-input{
+    cursor: pointer;
+}
+
+.redondo{
+    border-radius: 20px;
+}

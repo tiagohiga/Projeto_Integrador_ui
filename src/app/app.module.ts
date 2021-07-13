@@ -17,6 +17,7 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { GrupoEditarComponent } from './editar/grupo-editar/grupo-editar.component';
 import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
     GrupoComponent,
     GrupoEditarComponent,
     GrupoDeletarComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    GrupoPaginaComponent
 
   ],
   imports: [
