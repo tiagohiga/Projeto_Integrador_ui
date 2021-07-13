@@ -1,42 +1,44 @@
-<div class ="container-fluid bg">
+<div class="container-fluid bg">
     <div class="row">
         <div class="col-md-12 mt-5 mb-5">
 
             <div class="row d-flex justify-content-center">
                 <div class="col-md-0">
-                    <div class="align-items-center card shadow mt-5 bgc" style="height: 54rem;">
+                    <div class="align-items-center card shadow mt-5 bgc">
                         <div class="card-body">
-                            <h4 class="text-center fs">Salutem</h4>
-                            <h6 class="text-center">Frequente grupos, compartilhe dúvidas sobre saúde em um ambiente seguro e acessivel!</h6>
-                            
+
+                            <h4 class="text-center fs-40"> Salutem <img class="imglogo mb-2" src="https://i.imgur.com/FguOnQN.png" alt="Logo"></h4>
+                            <h6 class="text-center mt-3">Frequente grupos, compartilhe dúvidas sobre saúde em um ambiente
+                                seguro e acessivel!</h6>
+
                             <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome" id="nome"
-                                placeholder="Seu nome">
+                                <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome"
+                                    id="nome" placeholder="Seu nome">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email" name="usuario" id="usuario"
-                                placeholder="Seu email">
+                                <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email"
+                                    name="usuario" id="usuario" placeholder="Seu email">
                             </div>
 
                             <div class="form-group">
                                 <label for="foto">Foto</label>
-                                <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text" name="usuario" id="foto"
-                                placeholder="Link da foto">
+                                <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text"
+                                    name="usuario" id="foto" placeholder="Link da foto">
                             </div>
 
                             <div class="form-group">
                                 <label for="senha">Senha</label>
-                                <input (input)='confirmSenha($event)' class="form-control" type="password" senha="senha" id="senha"
-                                placeholder="Sua senha">
+                                <input (input)='confirmSenha($event)' class="form-control" type="password" senha="senha"
+                                    id="senha" placeholder="Sua senha">
                             </div>
 
                             <div class="form-group">
                                 <label for="confirmarsenha">Confirmar Senha</label>
-                                <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password" name="confirmarsenha"
-                                id="confirmarsenha" placeholder="Confirme sua senha">
+                                <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password"
+                                    name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha">
                             </div>
                             
                             <div class="form-group mt-4">
@@ -49,15 +51,15 @@
                             
                             <div *ngIf ='verificaTipo()' class="form-group ">
                                 <label for="crm">Crm</label>
-                                <input [(ngModel)]='usuario.crmUsuario' class="form-control" type="text" crm="crm" id="crm"
-                                placeholder="Informe o Crm">
+                                <input [(ngModel)]='usuario.crmUsuario' class="form-control" type="text" crm="crm"
+                                    id="crm" placeholder="Informe o Crm">
                             </div>
-                            
+
                             <div class="d-flex justify-content-center">
                                 <button class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
                             </div>
                             <hr>
-                            <div class="mt-2 mb-2 text-center">
+                            <div class="mt-2 mb-2 text-center fs-15">
                                 <p>Já possui uma conta?
                                 </p>
                                 <a routerLink="/entrar" class="text-info">Entrar</a>
