@@ -38,16 +38,16 @@
                                 <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password" name="confirmarsenha"
                                 id="confirmarsenha" placeholder="Confirme sua senha">
                             </div>
-
-                            <!--<div class="form-group mt-4">
-                                <select class="form-group" style="width: 15rem;" name=tipo id="tipo">
+                            
+                            <div class="form-group mt-4">
+                                <select  class="form-group" style="width: 15rem;" name=tipo id="tipo" (change)='tipoUser($event)'>
                                  <option>Selecione um tipo de usuário</option>
                                  <option value="normal">Normal</option>
-                                 <option value="medico">Profissional da saúde</option>
+                                 <option value="medico">Medico</option>
                                 </select>
-                             </div>-->
+                             </div>
                             
-                            <div class="form-group input-crm">
+                            <div *ngIf ='verificaTipo()' class="form-group ">
                                 <label for="crm">Crm</label>
                                 <input [(ngModel)]='usuario.crmUsuario' class="form-control" type="text" crm="crm" id="crm"
                                 placeholder="Informe o Crm">

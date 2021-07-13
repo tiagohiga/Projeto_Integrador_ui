@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
 import { AuthService } from '../service/auth.service';
 
@@ -13,31 +12,62 @@ export class CadastrarComponent implements OnInit {
 
   usuario: Usuario = new Usuario
   confirmarSenha: string
+  tipoUsuario: string
+  auxiliar: boolean
+
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    public authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
 
-  confirmSenha(event: any){
+  confirmSenha(event: any) {
     this.confirmarSenha = event.target.value
   }
 
+  tipoUser(event: any) {
+    this.tipoUsuario = event.target.value
+    this.verificaTipo()
+  }
 
-  cadastrar(){
-    
-    if(this.usuario.senhaUsuario != this.confirmarSenha){
-      alert("As senhas não correspondem")
-    } else{
-      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-        this.usuario = resp
-        this.router.navigate(['/entrar'])
-        alert("Usuário cadastrado com sucesso!")
-      })
+  verificaTipo() {
+    if (this.tipoUsuario == "medico") {
+      this.auxiliar = true
+      return true;
+    } else {
+      this.auxiliar = false
+      return false
+      
     }
   }
+  cadastrar(){
+    if(this.auxiliar){
+      if(this.usuario.crmUsuario.length == 6){
+        this.cadastrar2()
+      }else{
+        alert("CRM inválido")
+      }
+    }else{
+      this.cadastrar2()
+    }
+  }
+
+  cadastrar2() {
+      if (this.usuario.senhaUsuario != this.confirmarSenha) {
+        alert("As senhas não correspondem")
+      } else {
+        this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+          this.usuario = resp
+          this.router.navigate(['/entrar'])
+          alert("Usuário cadastrado com sucesso!")
+        })
+      }
+  }
+
 }
+
+
 
