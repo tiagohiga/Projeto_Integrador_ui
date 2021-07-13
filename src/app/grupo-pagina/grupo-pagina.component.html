@@ -1,0 +1,90 @@
+<div class="container-fluid px-0">
+    <img class="w-100 capa-grupo" src="{{this.grupo.urlImagemGrupo}}" alt="Imagem de capa do grupo">
+</div>
+<div *ngFor='let item of grupo.listaDeUsuarios'>
+    <h1>{{item.nomeUsuario}}</h1>
+</div>
+
+<div class="container mt-3 mb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card bg-muted">
+                <div class="card-body p-3">
+                    <div class="input-group input-group-md">
+                        <input type="text" class="form-control input-md cursor-input redondo" id="search-church"
+                            placeholder="Comece sua publicação" data-toggle="modal" data-target="#modalPostagem">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-3">
+    <div class="row d-flex justify-content-center" *ngFor='let item of grupo.listaDePostagens'>
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    {{item.usuarioPostagem.nomeUsuario}}
+                </div>
+                <img src="{{item.urlImagemPostagem}}" class="card-img-top" alt="Imagem da postagem">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.tituloPostagem}}</h5>
+                    <p class="card-text">{{item.descricaoPostagem}}</p>
+                    <p class="card-text"><small class="text-muted">Especialidade: {{item.especialidadePostagem}}</small></p>
+                </div>
+                <div class="card-footer text-muted">
+                    {{item.data | date:'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal de Postagem-->
+
+<div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPostagemLabel">Nova Postagem
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="titulo">Título da Postagem</label>
+                        <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
+                            id="titulo" placeholder="Informe o título da postagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagem">Imagem</label>
+                        <input [(ngModel)]='postagem.urlImagemPostagem' name="imagem" type="text" class="form-control"
+                            id="imagem" placeholder="Insira o link de uma imagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especialidade"></label>
+                        <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade" type="text"
+                            class="form-control" id="especialidade" placeholder="Insira a especialidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publicacao">Publicação</label>
+                        <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
+                            id="publicacao" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                    (click)='publicarPostagem()'>Publicar</button>
+            </div>
+        </div>
+    </div>
+</div>
