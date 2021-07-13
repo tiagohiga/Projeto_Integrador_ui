@@ -23,10 +23,12 @@ export class MenuComponent implements OnInit {
   nomeContainer: string
   larguraTela: number
 
+  pesquisaTema: string
+
   constructor(
     private router: Router,
     private grupoService: GrupoService,
-  ) { }
+  ) {this.router.routeReuseStrategy.shouldReuseRoute = () => false;}
 
   ngOnInit() {
     this.larguraTela = window.innerWidth
@@ -38,6 +40,14 @@ export class MenuComponent implements OnInit {
     this.grupoService.postGrupo(this.grupo).subscribe((resp: Grupo) => {
       this.grupo = resp
       alert("Grupo criadoo uhuuul!")
+      this.grupo = new Grupo()
+    })
+  }
+
+  criarNovoGrupo(){
+    this.grupoService.postNovoGrupo(this.idUser, this.grupo).subscribe((resp: Grupo) => {
+      this.grupo = resp
+      alert("Será que vai mesmo")
       this.grupo = new Grupo()
     })
   }
@@ -63,6 +73,10 @@ export class MenuComponent implements OnInit {
     }else{
       this.nomeContainer = "container-fluid"
     }
+  }
+
+  pesquisarTema(){
+    this.router.navigate(['/grupo', this.pesquisaTema])
   }
 
 }

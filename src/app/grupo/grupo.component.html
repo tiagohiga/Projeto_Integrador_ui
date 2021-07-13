@@ -16,9 +16,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-end mr-2">
-                            <button class="btn btn-outline-success mr-3">Entrar</button>
+                            <button class="btn btn-outline-success mr-3" [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
                             <button class="btn btn-outline-info mr-3"
-                             [routerLink]="['/grupo-editar', item.idGrupo]" >Atualizar</button>
+                             [routerLink]="['/grupo-editar', item.idGrupo]">Atualizar</button>
                             <button class="btn btn-danger"
                             (click)="deletarGrupo(item.idGrupo)">Deletar</button>
                         </div>
