@@ -6,7 +6,12 @@
     height: 100vh;
 }
 
+.borda{
+    border-radius: 6%;
+}
+
 .entrar-tamanho{
+    border-radius: 6%;
     height: 550px;
     width: 400px;
 }
