@@ -1,8 +1,8 @@
 .card{
 
     border-radius: 20pt;
-    width: 101.2rem;
-    height: 35rem;
+    width: 30rem;
+    height: 40rem;
     border-color: black;
     border-style: double;
 }
@@ -14,7 +14,7 @@
 
 .card-img-top{
     
-    width: 101rem;
+    width: 30rem;
     height: 19rem;
     border-radius: 22pt;
     border-color: rgb(5, 5, 5);
