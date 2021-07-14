@@ -14,6 +14,9 @@ export class GrupoComponent implements OnInit {
   listaGrupos: Grupo[]
   grupo: Grupo = new Grupo()
 
+key = 'data'
+reverse = true
+
   temaGrupo: string
   
   constructor(
