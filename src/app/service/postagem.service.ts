@@ -25,8 +25,16 @@ export class PostagemService {
     return this.http.post<Postagem>(`https://rssalutem.herokuapp.com/postagem/${idGrupo}/${idUsuario}`, postagem, this.token)
   }
 
-  putPostagem(postagem: Postagem): Observable<Postagem>{
-    return this.http.put<Postagem>("https://rssalutem.herokuapp.com/postagem", postagem, this.token)
+  putPostagem(id:number ,postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>(`https://rssalutem.herokuapp.com/postagem/${id}`, postagem, this.token)
   }
+
+  deletarPostagem(id:number){
+    return this.http.delete(`https://rssalutem.herokuapp.com/postagem/apagar/${id}`,this.token)
+  }
+  
+  /*getById(id:number):Observable<Postagem>{
+    return this.http.get<Postagem>(`https://rssalutem.herokuapp.com/postagem/${id}`,this.token)
+  }*/
 
 }

@@ -1,104 +1,103 @@
-<!-- Menu oficial-->
 <div class="bg">
   <div class="{{this.nomeContainer}}">
     <div class="navbar navbar-expand-lg py-0">
 
-      <a class="navbar-brand mt-2" routerLink='/inicio' *ngIf='this.divVisivel'>
-          <img class="img-fluid tamanho-logo rounded-circle imglogo" src="https://i.imgur.com/FguOnQN.png"
-            alt="Logo da Salutem">
-        </a>
+      <a class="navbar-brand mt-1" routerLink='/inicio' *ngIf='this.divVisivel'>
+        <img class="img-fluid tamanho-logo rounded-circle imglogo" src="https://i.imgur.com/FguOnQN.png"
+          alt="Logo da Salutem">
+      </a>
 
-        <!--Pesquisar grande-->
-        <div class="mr-auto esconder-busca py-1">
-          <form class="form-inline my-lg-1">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
-                    aria-hidden="true" (click)="pesquisarTema()"></i>
-                </button>
-              </div>
-              <input [(ngModel)]='pesquisaTema' name="pesquisa"
-                class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
-                aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-light borda border-left-0 border" type="button"><i class="fa fa-times"
-                    aria-hidden="true" (click)='esconderPesquisa()'></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-        <!--Pesquisar pequena-->
-        <div class="mr-auto exibir-buscador py-1">
+      <!--Pesquisar grande-->
+      <div class="mr-auto esconder-busca py-1">
+        <form class="form-inline my-lg-1">
           <div class="input-group">
             <div class="input-group-prepend">
               <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
-                  aria-hidden="true" (click)='mostrarBusca()'></i>
+                  aria-hidden="true" (click)="pesquisarTema()"></i>
               </button>
             </div>
-            <input [(ngModel)]='pesquisaTema' (keydown.enter)='pesquisarTema()' class="form-control borda teste"
-              name="pesquisaMenor" type="input" placeholder="Procurar..." aria-label="Search" *ngIf='this.buscaVisivel'>
+            <input [(ngModel)]='pesquisaTema' name="pesquisa" class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
+              aria-label="Search">
             <div class="input-group-append">
-              <button class="btn btn-light borda border-left-0 border" type="button" *ngIf='this.buscaVisivel'
-                (click)='esconderPesquisa()'><i class="fa fa-times" aria-hidden="true"></i>
+              <button class="btn btn-light borda border-left-0 border" type="button"><i class="fa fa-times"
+                  aria-hidden="true" (click)='esconderPesquisa()'></i>
               </button>
             </div>
           </div>
+        </form>
+      </div>
+
+      <!--Pesquisar pequena-->
+      <div class="mr-auto exibir-buscador py-1">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-primary borda btn-dark" type="submit"><i class="fa fa-search fa-flip-horizontal"
+                aria-hidden="true" (click)='mostrarBusca()'></i>
+            </button>
+          </div>
+          <input [(ngModel)]='pesquisaTema' (keydown.enter)='pesquisarTema()' class="form-control borda teste" name="pesquisaMenor" type="input" placeholder="Procurar..." aria-label="Search"
+            *ngIf='this.buscaVisivel'>
+          <div class="input-group-append">
+            <button class="btn btn-light borda border-left-0 border" type="button" *ngIf='this.buscaVisivel'
+              (click)='esconderPesquisa()'><i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
         </div>
+      </div>
 
 
-        <div class="ml-auto" *ngIf='this.divVisivel'>
-          <ul class="navbar-nav list-inline">
-            <div class="d-flex align-items-end">
-              <li class="list-inline-item text-center">
-                <a class="nav-link d-flex flex-column botao" href="#">
-                  <i class="fa fa-envelope-o fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                  <span class="fs-10 esconder-texto text-dark">Mensagens</span>
-                </a>
-              </li>
+      <div class="ml-auto" *ngIf='this.divVisivel'>
+        <ul class="navbar-nav list-inline">
+          <div class="d-flex align-items-end">
+            <li class="list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao" href="#">
+                <i class="fa fa-envelope-o fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Mensagens</span>
+              </a>
+            </li>
 
-              <li class="nav-item dropdown list-inline-item text-center">
-                <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-users fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                  <span class="fs-10 esconder-texto text-dark">Grupos</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" routerLink="/grupo">Seus Grupos</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" data-toggle="modal" data-target="#ExemploModalCentralizado">Novo Grupo</a>
-                </div>
-              </li>
-
-
-              <!--<i class="fa fa-user fs-16 aumentar-icone text-dark " aria-hidden="true"></i>-->
-              <li class="nav-item dropdown list-inline-item text-center">
-                <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
-                  <span class="fs-10 esconder-texto text-dark">Eu</span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" [routerLink]="['/user', idUser]">Meu Perfil</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item">Outro Link</a>
-                </div>
-              </li>
+            <li class="nav-item dropdown list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-users fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Grupos</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" routerLink="/grupo">Seus Grupos</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" data-toggle="modal" data-target="#ExemploModalCentralizado" *ngIf='verificarCrm()'>Novo Grupo</a>
+              </div>
+            </li>
 
 
-              <li class="list-inline-item text-center">
-                <a class="nav-link d-flex flex-column botao" (click)="sair()">
-                  <i class="fa fa-sign-out fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                  <span class="fs-10 esconder-texto text-dark">Sair</span>
-                </a>
-              </li>
+            <!--<i class="fa fa-user fs-16 aumentar-icone text-dark " aria-hidden="true"></i>-->
+            <li class="nav-item dropdown list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
+                <span class="fs-10 esconder-texto text-dark">Eu</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['/user', idUser]">Meu Perfil</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Outro Link</a>
+              </div>
+            </li>
+            
 
-            </div>
-          </ul>
-        </div>
+            <li class="list-inline-item text-center">
+              <a class="nav-link d-flex flex-column botao" (click)="sair()">
+                <i class="fa fa-sign-out fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
+                <span class="fs-10 esconder-texto text-dark">Sair</span>
+              </a>
+            </li>
+
+          </div>
+        </ul>
+
+
+      </div>
     </div>
-
   </div>
 </div>
 

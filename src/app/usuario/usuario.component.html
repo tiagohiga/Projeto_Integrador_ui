@@ -73,10 +73,13 @@
                                 [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
                         </p>
                     </div>
-                    <div class="card-footer p-1">
+                    <div class="card-footer p-1 d-flex justify-content-center">
                         <p class="text-right text-weight-bold"><small>{{item.data | date:'dd/MM/yyyy'}} às {{item.data |
                                 date:'HH:mm'}}</small></p>
+
                     </div>
+                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem" (click)="idDaPostagem(item.idPostagem)">Editar</a>
+                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem" (click)="idDaPostagem(item.idPostagem)">Apagar</a>
                     <hr class="w-100 text-muted mt-1">
                 </div>
 
@@ -195,6 +198,76 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" (click)='deletarUsuario()'>Excluir
                     Perfil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal para edição de postagem-->
+<div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPostagemLabel">Editar Postagem
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="titulo">Título da Postagem</label>
+                        <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
+                            id="titulo" placeholder="Informe o título da postagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagem">Imagem</label>
+                        <input [(ngModel)]='postagem.urlImagemPostagem' name="imagem" type="text" class="form-control"
+                            id="imagem" placeholder="Insira o link de uma imagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especialidade"></label>
+                        <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade" type="text"
+                            class="form-control" id="especialidade" placeholder="Insira a especialidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publicacao">Publicação</label>
+                        <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
+                            id="publicacao" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="atualizar()">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para excluir postagem-->
+<div class="modal fade" id="modalExcluirPostagem" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Excluir Postagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-danger">Lembre que esta ação é permanente e não poderá ser desfeita.</h5>
+                <h5 class="text-danger">Deseja realmente excluir sua postagem?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletarPostagem()" >Sim</button>
             </div>
         </div>
     </div>
