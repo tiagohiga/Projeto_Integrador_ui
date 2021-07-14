@@ -1,37 +1,43 @@
-.bg{
+img.bg {
+    background: linear-gradient(45deg, #94B3FF, #97e4ee);
+    min-height: 100%;
+    min-width: 1024px;
+  
 
-    height: 100vh;
+    width: 100%;
+    height: auto;
+  
 
-    background-image: url(https://i.imgur.com/9wjFpDi.png);
-    background-repeat: no-repeat;
-    background-size: 180pc;
-    background-position: center;
-    background-attachment: relative;
-    
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  @media screen and (max-width: 1024px){
+    img.bg {
+      left: 50%;
+      margin-left: -512px;
+    }
+  }
+
+.bgc{
+    background: rgb(255, 255, 255);
+    border-radius: 1%;
+    width: 550px;
+    height: 53rem;
+    /*border-color: rgb(5, 5, 5);*/
+    /*border-style: double;*/
 }
 
-
-.fs-40{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40pt;
+.fs-18{
+  font-size: 18pt;
+  padding: 7px;
 }
 
 .fs-15{
     font-size: 15pt;
 }
 
-.bgc{
-    background-color: rgb(255, 255, 255);
-    border-radius: 6%;
-    width: 510px;
-    height: 55rem;
-    border-color: rgb(5, 5, 5);
-    border-style: double;
-}
-
-.input-crm{
-    visibility: hidden;
-}
 
 .imglogo{
     width: 50px;
@@ -40,5 +46,67 @@
     border-radius: 50%;
 
 }
+
+.button{
+
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.form-control:focus{ 
+  border-color: white; 
+  box-shadow: 0 0 0 0; 
+  box-shadow: none; 
+  border: none;
+}
+
+.input-field{
+
+  position: relative;
+}
+
+.input-field{
+
+  position: relative;
+  margin: 1px;
+
+}
+
+.input-field .underline::before {
+content:"";
+position: absolute;
+height: 0.9px;
+width: 100%;
+bottom: -5px;
+left: 0;
+background: rgb(240, 240, 240);
+
+}
+.input-field .underline::after {
+  content:"";
+  position: absolute;
+  height: 0.9px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(45deg, #5383fd, #bbf6fd);
+  transform: scaleX(0);
+  transition: all .3s ease-in-out;
+  transform-origin: left;
+} 
+
+.input-field input:focus ~ .underline::after{
+  transform: scaleX(1)
+}
+.footer{
+
+display: flex;
+flex-direction: column;
+margin-top: 1rem;
+}
+
+input {border:0;outline:0;}
+input:focus {outline:none!important;}
 
 

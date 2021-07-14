@@ -26,6 +26,8 @@ export class MenuComponent implements OnInit {
 
   pesquisaTema: string
 
+
+
   constructor(
     private router: Router,
     private grupoService: GrupoService,
@@ -35,7 +37,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.larguraTela = window.innerWidth
     this.atribuirContainer()
-    console.log(this.idUser)
   }
 
   cadastrar() {
@@ -80,6 +81,14 @@ export class MenuComponent implements OnInit {
 
   pesquisarTema(){
     this.router.navigate(['/grupo', this.pesquisaTema])
+  }
+
+  verificarCrm(){
+    if(environment.crmUsuario != null){
+      return true
+    } else{
+      return false
+    }
   }
 
 }

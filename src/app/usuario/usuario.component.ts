@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
+import { PostagemService } from '../service/postagem.service';
 import { UsuarioService } from '../service/usuario.service';
 
 @Component({
@@ -18,11 +20,15 @@ export class UsuarioComponent implements OnInit {
   idUser: number
   confirmaSenha: string
 
+  postagem: Postagem = new Postagem ()
+  idPostagem:number
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private usuarioService: UsuarioService,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    private postagemService: PostagemService
   ) { }
 
   ngOnInit(){
@@ -76,6 +82,28 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.deleteUsuario(this.idUser).subscribe(() => {
       this.alertas.showAlertInfo("Usuário deletado com sucesso")
       this.router.navigate(['/entrar'])
+    })
+  }
+
+
+  idDaPostagem(id: number){
+    this.idPostagem = id
+  }
+
+  deletarPostagem(){
+    this.postagemService.deletarPostagem(this.idPostagem).subscribe(()=>{
+      this.alertas.showAlertInfo("Postagem deletada com sucesso")
+      this.router.navigate(["/inicio"])
+    })
+  }
+
+  atualizar(){
+    this.postagem.usuarioPostagem = this.usuario
+    this.postagem.idPostagem = this.idPostagem
+    this.postagemService.putPostagem(this.idPostagem,this.postagem).subscribe((resp:Postagem)=>{
+      this.postagem=resp
+      this.alertas.showAlertSuccess("Postagem atualizada com sucesso!")
+      this.router.navigate(["/inicio"])
     })
   }
 

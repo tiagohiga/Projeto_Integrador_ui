@@ -1,32 +1,35 @@
-<div class="container my-3 shadow">
-    <div class="row d-flex justify-content-center bg">
+<div class="container-fluid my-3">
+    <div class="row d-flex justify-content-center">
+
         <div class="">
-            <h1>Lista de Grupos</h1>
-        </div>
-        <div class="col-md-12">
-            <div class="card mt-3 mb-3" *ngFor='let item of listaGrupos'>
+            <h1 class="ft5 d-flex justify-content-center">Lista de Grupos</h1>
+            <div class="card mb-3 shadow d-flex justify-content-center mt-5"
+                *ngFor='let item of listaGrupos | orderBy : key : reverse'>
                 <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem de capa do card">
-                <div class="row d-flex align-items-center">
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{item.temaGrupo}}</h5>
+                
+                <div class="card-body">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-md-8">
+
+                            <div class="card-header titulocard">
+                                <h5 class="card-title">{{item.temaGrupo}}</h5>
+                            </div>
                             <p class="card-text">{{item.descricaoGrupo}}</p>
                             <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small></p>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-flex justify-content-end mr-2">
-                            <button class="btn btn-outline-success mr-3" [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
-                            <button class="btn btn-outline-info mr-3"
-                             [routerLink]="['/grupo-editar', item.idGrupo]">Atualizar</button>
-                            <button class="btn btn-danger"
-                            (click)="deletarGrupo(item.idGrupo)">Deletar</button>
+
+                        <div class="col-md-4 mt-5">
+                            <div class="d-flex justify-content-end align-items-end mr-2 mt-5">
+
+                                <button class="btn btn-outline-success mr-3 "
+                                    [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
+                                <button class="btn btn-outline-info mr-3"
+                                    [routerLink]="['/grupo-editar', item.idGrupo]">Atualizar</button>
+                                <button class="btn btn-danger" (click)="deletarGrupo(item.idGrupo)">Deletar</button>
+                            </div>
                         </div>
-                        
-                            
-                    
-                        
                     </div>
+
                 </div>
             </div>
         </div>

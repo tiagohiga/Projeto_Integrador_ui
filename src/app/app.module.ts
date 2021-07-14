@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
+import { OrderModule } from 'ngx-order-pipe';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
-
 import { EntrarComponent } from './entrar/entrar.component';
 import { GrupoDestaquesComponent } from './grupo-destaques/grupo-destaques.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -20,6 +21,9 @@ import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.com
 import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { AlertasComponent } from './alertas/alertas.component';
+import { NgxPaginationModule } from 'ngx-pagination'
+
+
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     GrupoDeletarComponent,
     UsuarioComponent,
     GrupoPaginaComponent,
-    AlertasComponent
+    AlertasComponent,
+    SobreComponent
 
   ],
   imports: [
@@ -44,7 +49,9 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
