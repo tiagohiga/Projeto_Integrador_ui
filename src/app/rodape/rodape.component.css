@@ -3,6 +3,13 @@ a{
     color: #FFFFFFFF;
 }
 
+.bg
+{
+ background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
+   /*background-color: #97e4ee;*/
+
+}
+
 a:hover{
     color: #004557;
 }
@@ -11,4 +18,8 @@ a:hover{
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+.fs-10{
+    font-size: 15pt;
 }

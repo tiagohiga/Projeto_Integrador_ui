@@ -16,6 +16,7 @@ import { UsuarioService } from '../service/usuario.service';
 export class UsuarioComponent implements OnInit {
 
   usuario: Usuario = new Usuario
+  usuario2: Usuario = new Usuario
 
   idUser: number
   confirmaSenha: string
@@ -60,10 +61,15 @@ export class UsuarioComponent implements OnInit {
   }
 
   atualizarUsuario(){
+    this.usuario2.emailUsuario = this.usuario.emailUsuario
+    this.usuario2.nomeUsuario = this.usuario.nomeUsuario
+    this.usuario2.senhaUsuario = this.usuario.senhaUsuario
+    this.usuario2.urlImagemUsuario = this.usuario.urlImagemUsuario
+
     if(this.usuario.senhaUsuario != this.confirmaSenha){
       this.alertas.showAlertDanger("As senhas não correspondem")
     }else{
-      this.usuarioService.putUsuario(this.idUser, this.usuario).subscribe((resp: Usuario) => {
+      this.usuarioService.putUsuario(this.idUser, this.usuario2).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.alertas.showAlertSuccess('Perfil atualizado com sucesso! Faça login novamente')
         environment.idUsuario = 0
