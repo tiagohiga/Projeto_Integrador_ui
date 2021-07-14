@@ -8,9 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
-
 import { EntrarComponent } from './entrar/entrar.component';
 import { GrupoDestaquesComponent } from './grupo-destaques/grupo-destaques.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -21,6 +21,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { NgxPaginationModule } from 'ngx-pagination'
+
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     GrupoDeletarComponent,
     UsuarioComponent,
     GrupoPaginaComponent,
-    AlertasComponent
+    AlertasComponent,
+    SobreComponent
 
   ],
   imports: [
