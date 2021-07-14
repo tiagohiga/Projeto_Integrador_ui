@@ -3,14 +3,14 @@
 
         <div class="">
             <h1 class="ft5 d-flex justify-content-center">Lista de Grupos</h1>
-            <div class="card mb-3 shadow d-flex justify-content-center mt-5"
-                *ngFor='let item of listaGrupos | orderBy : key : reverse'>
-                <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem de capa do card">
-                
-                <div class="card-body">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-8">
 
+
+            <div class="card-body columns">
+                <div class="card shadow d-flex justify-content-start mt-5"
+                    *ngFor='let item of listaGrupos | orderBy : key : reverse'>
+                    <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem de capa do card">
+                   
+                        <div class="columns mt-3">
                             <div class="card-header titulocard">
                                 <h5 class="card-title">{{item.temaGrupo}}</h5>
                             </div>
@@ -18,8 +18,8 @@
                             <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small></p>
                         </div>
 
-                        <div class="col-md-4 mt-5">
-                            <div class="d-flex justify-content-end align-items-end mr-2 mt-5">
+                        <div class="d-flex justify-content-end mr-2">
+                            <div class="d-flex align-items-end mt-3">
 
                                 <button class="btn btn-outline-success mr-3 "
                                     [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
@@ -28,8 +28,7 @@
                                 <button class="btn btn-danger" (click)="deletarGrupo(item.idGrupo)">Deletar</button>
                             </div>
                         </div>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>

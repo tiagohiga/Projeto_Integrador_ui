@@ -1,4 +1,4 @@
-<div class="container bg-card">
+<div class="container-fluid bg-card">
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center my-3">Olá, {{this.usuario.nomeUsuario}}</h1>
@@ -92,7 +92,7 @@
     <div class="row d-flex justify-content-center">
         <div class="card w-75 mb-3">
             <h4 class="text-center mt-3 mb-3">Seus Grupos</h4>
-            <hr class="w-100 text-muted mt-0">
+            <hr class="w-100 text-muted mt-0 mb-5">
             <div class="card-deck">
                 <div class="card" style="width: 18rem;" *ngFor='let item of usuario.listaGrupoUsuario'>
                     <div class="card-header">
