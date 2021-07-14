@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
+import { OrderModule } from 'ngx-order-pipe';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -21,6 +22,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { NgxPaginationModule } from 'ngx-pagination'
+
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     HttpClientModule,
     FormsModule,
     ModalModule.forRoot(),
-    NgxPaginationModule
+    NgxPaginationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

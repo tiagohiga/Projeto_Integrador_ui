@@ -1,9 +1,6 @@
 <div class="container-fluid px-0">
     <img class="w-100 capa-grupo" src="{{this.grupo.urlImagemGrupo}}" alt="Imagem de capa do grupo">
 </div>
-<div *ngFor='let item of grupo.listaDeUsuarios'>
-    <h1>{{item.nomeUsuario}}</h1>
-</div>
 
 <div class="container mt-3 mb-3">
     <div class="row d-flex justify-content-center">
@@ -31,7 +28,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{item.tituloPostagem}}</h5>
                     <p class="card-text">{{item.descricaoPostagem}}</p>
-                    <p class="card-text"><small class="text-muted">Especialidade: {{item.especialidadePostagem}}</small></p>
+                    <p class="card-text"><small class="text-muted">Especialidade: {{item.especialidadePostagem}}</small>
+                    </p>
                 </div>
                 <div class="card-footer text-muted">
                     {{item.data | date:'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
