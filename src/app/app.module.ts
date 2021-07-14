@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
+import { OrderModule } from 'ngx-order-pipe';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
-
 import { EntrarComponent } from './entrar/entrar.component';
 import { GrupoDestaquesComponent } from './grupo-destaques/grupo-destaques.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -18,6 +20,10 @@ import { GrupoEditarComponent } from './editar/grupo-editar/grupo-editar.compone
 import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { NgxPaginationModule } from 'ngx-pagination'
+
+
 
 @NgModule({
   declarations: [
@@ -33,14 +39,19 @@ import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
     GrupoEditarComponent,
     GrupoDeletarComponent,
     UsuarioComponent,
-    GrupoPaginaComponent
+    GrupoPaginaComponent,
+    AlertasComponent,
+    SobreComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    NgxPaginationModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
