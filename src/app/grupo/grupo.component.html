@@ -1,36 +1,38 @@
-<div class="container-fluid my-3">
+<div class="container-fluid my-2">
     <div class="row d-flex justify-content-center">
 
-        <div class="">
-            <h1 class="ft5 d-flex justify-content-center">Lista de Grupos</h1>
+        <div class="row d-flex justify-content-center">
+            <h1 class="ft5 d-flex justify-content-center mb-0">Lista de Grupos</h1>
 
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-11">
+                    <div class="card-columns">
+                        <div class="card shadow mb-2 mt-3" *ngFor='let item of listaGrupos | orderBy : key : reverse'>
+                            <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem do grupo">
+                            <div class="mb-3">
+                                <blockquote class="blockquote mb-0 card-body">
+                                    <h5 class="card-title">{{item.temaGrupo}}</h5>
+                                    <p class="card-text">{{item.descricaoGrupo}}</p>
+                                    <div class="card-footer">
+                                        <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small>
+                                        </p>
+                                    </div>
+                                </blockquote>
+                                <div class="row d-flex justify-content-end align-items-end mr-2">
+                                    <a class="btn btn-outline-success mr-3 "
+                                        [routerLink]="['/grupos', item.idGrupo]">Entrar</a>
 
-            <div class="card-body columns">
-                <div class="card shadow d-flex justify-content-start mt-5"
-                    *ngFor='let item of listaGrupos | orderBy : key : reverse'>
-                    <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem de capa do card">
-                   
-                        <div class="columns mt-3">
-                            <div class="card-header titulocard">
-                                <h5 class="card-title">{{item.temaGrupo}}</h5>
+                                    <a class="btn btn-outline-info mr-3"
+                                        [routerLink]="['/grupo-editar', item.idGrupo]">Atualizar</a>
+
+                                    <a class="btn btn-danger" (click)="deletarGrupo(item.idGrupo)">Deletar</a>
+                                </div>
                             </div>
-                            <p class="card-text">{{item.descricaoGrupo}}</p>
-                            <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small></p>
                         </div>
-
-                        <div class="d-flex justify-content-end mr-2">
-                            <div class="d-flex align-items-end mt-3">
-
-                                <button class="btn btn-outline-success mr-3 "
-                                    [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
-                                <button class="btn btn-outline-info mr-3"
-                                    [routerLink]="['/grupo-editar', item.idGrupo]">Atualizar</button>
-                                <button class="btn btn-danger" (click)="deletarGrupo(item.idGrupo)">Deletar</button>
-                            </div>
-                        </div>
-                    
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
