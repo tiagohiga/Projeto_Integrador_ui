@@ -1,3 +1,4 @@
+
 <div class="container bg-card">
     <div class="row">
         <div class="col-md-12">
@@ -13,50 +14,52 @@
                     <div class="container-img text-center">
                         <img class="rounded-circle img-perfil" src="{{this.usuario.urlImagemUsuario}}"
                             alt="Foto do usuarie">
+                            
                         <a href="#modalEditar" data-toggle="modal" aria-label="Editar perfil">
-                            <i class="fa fa-cog fs-26" aria-hidden="true"></i>
+                           
+                            <i class="fa fa-cog fs-26" aria-hidden="true"> <h4>Editar</h4></i>
                         </a>
                     </div>
-
-                </div>
-
-                <div class="mx-3">
-                    <div class="row">
-                        <hr class="w-100 text-muted mt-1">
-                        <div class="col-md-4">
-                            <h6 class="text-weight-bold fs-10">Nome:</h6>
+                    <div class="mx-3">
+                        <div class="row">
+                            <hr class="w-100 text-muted mt-1">
+                            <div class="col-md-4">
+                                <h6 class="text-weight-bold fs-16">Nome:</h6>
+                            </div>
+    
+                            <div class="col-md-8">
+                                <h4 class="fs-13">{{this.usuario.nomeUsuario}}</h4>
+                            </div>
                         </div>
-
-                        <div class="col-md-8">
-                            <h4 class="fs-16">{{this.usuario.nomeUsuario}}</h4>
+    
+                        <div class="row" *ngIf='this.verificarCrm()'>
+                            <hr class="w-100 text-muted mt-1">
+                            <div class="col-md-4">
+                                <h6 class="text-weight-bold fs-16">CRM:</h6>
+                            </div>
+    
+                            <div class="col-md-8">
+                                <h4 class="fs-10">{{this.usuario.crmUsuario}}</h4>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="row" *ngIf='this.verificarCrm()'>
-                        <hr class="w-100 text-muted mt-1">
-                        <div class="col-md-4">
-                            <h6 class="text-weight-bold fs-10">CRM:</h6>
-                        </div>
-
-                        <div class="col-md-8">
-                            <h4 class="fs-16">{{this.usuario.crmUsuario}}</h4>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <hr class="w-100 text-muted mt-1">
-                        <div class="col-md-4">
-                            <h6 class="text-weight-bold fs-10">E-mail:</h6>
-                        </div>
-
-                        <div class="col-md-8">
-                            <h4 class="fs-16">{{this.usuario.emailUsuario}}</h4>
+    
+                        <div class="row">
+                            <hr class="w-100 text-muted mt-1">
+                            <div class="col-md-4">
+                                <h6 class="text-weight-bold fs-16">E-mail:</h6>
+                            </div>
+    
+                            <div class="col-md-8">
+                                <h4 class="fs-13">{{this.usuario.emailUsuario}}</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+                </div>
+<!--POSTAGENS-->
+                
 
     <div class="row d-flex justify-content-center mb-3">
         <div class="card w-75">
@@ -65,6 +68,16 @@
             <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
 
                 <div class="card mb-3">
+                    <div class="card-header">
+                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem"
+                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-cogs text-dark icon-hover"
+                                aria-hidden="true"></i>
+                        </a>
+                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem"
+                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-trash text-danger icon-hover"
+                                aria-hidden="true"></i>
+                        </a>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{item.tituloPostagem}}</h5>
                         <p class="card-text">{{item.descricaoPostagem}}</p>
@@ -78,9 +91,7 @@
                                 date:'HH:mm'}}</small></p>
 
                     </div>
-                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem" (click)="idDaPostagem(item.idPostagem)">Editar</a>
-                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem" (click)="idDaPostagem(item.idPostagem)">Apagar</a>
-                    <hr class="w-100 text-muted mt-1">
+
                 </div>
 
             </div>
@@ -111,7 +122,7 @@
     </div>
 
     <div class="row d-flex justify-content-center h-100">
-        <div class="card w-75 mb-3">
+        <div class="card">
             <h4 class="text-center mt-3 mb-3">Deletar Perfil</h4>
             <h6 class="text-danger mr-3 ml-3">*Está é uma ação permanente e não poderá ser desfeita</h6>
             <hr class="w-100 text-muted mt-0">
@@ -127,7 +138,10 @@
     </div>
 </div>
 
-<!--Modal para edição de perfil-->
+
+
+<!--MODAL EDITAR-->
+
 <div class="modal fade" id="modalEditar" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="modalEditarLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -177,6 +191,20 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--Modal para excluir-->
 <div class="modal fade" id="modalExcluir" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -267,7 +295,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletarPostagem()" >Sim</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deletarPostagem()">Sim</button>
             </div>
         </div>
     </div>
