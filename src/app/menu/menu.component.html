@@ -17,7 +17,7 @@
               </button>
             </div>
             <input [(ngModel)]='pesquisaTema' name="pesquisa" class="form-control borda  bordainput border-right-0 border" type="input" placeholder="Procurar..."
-              aria-label="Search">
+              aria-label="Search" (click)="pesquisarTema()">
             <div class="input-group-append">
               <button class="btn btn-light borda border-left-0 border" type="button"><i class="fa fa-times"
                   aria-hidden="true" (click)='esconderPesquisa()'></i>
@@ -50,9 +50,9 @@
         <ul class="navbar-nav list-inline">
           <div class="d-flex align-items-end">
             <li class="list-inline-item text-center">
-              <a class="nav-link d-flex flex-column botao" href="#">
-                <i class="fa fa-envelope-o fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                <span class="fs-10 esconder-texto text-dark">Mensagens</span>
+              <a class="nav-link d-flex flex-column botao" routerLink="/sobre">
+                <i class="fa fa-envelope-o fs-16 aumentar-icone text-dark"  aria-hidden="true"></i>
+                <span class="fs-12 esconder-texto text-dark">Sobre</span>
               </a>
             </li>
 
@@ -60,7 +60,7 @@
               <a class="nav-link d-flex flex-column botao nav-link" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-users fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                <span class="fs-10 esconder-texto text-dark">Grupos</span>
+                <span class="fs-12 esconder-texto text-dark">Grupos</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" routerLink="/grupo">Seus Grupos</a>
@@ -78,9 +78,7 @@
                 <span class="fs-10 esconder-texto text-dark">Eu</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" [routerLink]="['/user', idUser]">Meu Perfil</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Outro Link</a>
+                <a class="dropdown-item" [routerLink]="['/user', idUser]">Meu Perfil</a> 
               </div>
             </li>
             
@@ -88,7 +86,7 @@
             <li class="list-inline-item text-center">
               <a class="nav-link d-flex flex-column botao" (click)="sair()">
                 <i class="fa fa-sign-out fs-16 aumentar-icone text-dark" aria-hidden="true"></i>
-                <span class="fs-10 esconder-texto text-dark">Sair</span>
+                <span class="fs-12 esconder-texto text-dark">Sair</span>
               </a>
             </li>
 
