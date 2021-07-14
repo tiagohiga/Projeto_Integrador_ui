@@ -65,6 +65,16 @@
             <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
 
                 <div class="card mb-3">
+                    <div class="card-header">
+                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem"
+                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-cogs text-dark icon-hover"
+                                aria-hidden="true"></i>
+                        </a>
+                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem"
+                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-trash text-danger icon-hover"
+                                aria-hidden="true"></i>
+                        </a>
+                    </div>
                     <div class="card-body">
                         <h5 class="card-title">{{item.tituloPostagem}}</h5>
                         <p class="card-text">{{item.descricaoPostagem}}</p>
@@ -78,9 +88,7 @@
                                 date:'HH:mm'}}</small></p>
 
                     </div>
-                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem" (click)="idDaPostagem(item.idPostagem)">Editar</a>
-                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem" (click)="idDaPostagem(item.idPostagem)">Apagar</a>
-                    <hr class="w-100 text-muted mt-1">
+
                 </div>
 
             </div>
@@ -267,7 +275,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletarPostagem()" >Sim</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                    (click)="deletarPostagem()">Sim</button>
             </div>
         </div>
     </div>

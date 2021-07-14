@@ -35,3 +35,8 @@
 .bg-card{
     background-color: #ebe8e8;
 }
+
+.icon-hover:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
