@@ -20,6 +20,7 @@ import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.com
 import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { AlertasComponent } from './alertas/alertas.component';
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
