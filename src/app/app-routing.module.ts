@@ -8,6 +8,7 @@ import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { GrupoComponent } from './grupo/grupo.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { SobreComponent } from './sobre/sobre.component';
 
 const routes: Routes = [  
   {path:"", redirectTo:"entrar", pathMatch:"full"},
@@ -20,8 +21,10 @@ const routes: Routes = [
   {path: "grupo-deletar/:id", component: GrupoDeletarComponent},
   {path: "grupos/:id", component: GrupoPaginaComponent},
   
-  {path: "grupo/:tema", component: GrupoComponent}
+  {path: "grupo/:tema", component: GrupoComponent},
 
+  {path: "grupo", component: GrupoComponent},
+  {path: "sobre", component: SobreComponent}
 ];
 
 @NgModule({

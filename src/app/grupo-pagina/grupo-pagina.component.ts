@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { GrupoService } from '../service/grupo.service';
 import { PostagemService } from '../service/postagem.service';
 import { UsuarioService } from '../service/usuario.service';
@@ -30,7 +31,8 @@ export class GrupoPaginaComponent implements OnInit {
 
     private grupoService: GrupoService,
     private usuarioService: UsuarioService,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -59,7 +61,7 @@ export class GrupoPaginaComponent implements OnInit {
   publicarPostagem(){
     this.postagemService.postPostagem(this.postagem, this.idGrupo, this.idUser).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso')
       this.postagem = new Postagem()
     })
   }

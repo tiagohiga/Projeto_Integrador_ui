@@ -1,8 +1,8 @@
 .img-perfil{
-    height: auto;
-    width: auto;
-    max-width: 300px;
-    max-height: 300px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    
 }
 
 .container-img{
@@ -30,4 +30,8 @@
 
 .fs-26{
     font-size: 26pt;
+}
+
+.bg-card{
+    background-color: #ebe8e8;
 }

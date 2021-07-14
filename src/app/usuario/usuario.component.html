@@ -1,4 +1,4 @@
-<div class="container bg-primary">
+<div class="container-fluid bg-card">
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center my-3">Olá, {{this.usuario.nomeUsuario}}</h1>
@@ -11,8 +11,9 @@
             <div class="card my-3 w-75">
                 <div class="card-body">
                     <div class="container-img text-center">
-                        <img class="rounded-circle img-perfil" src="{{this.usuario.urlImagemUsuario}}" alt="Foto do usuarie">
-                        <a href="#modalEditar" data-toggle="modal"  aria-label="Editar perfil">
+                        <img class="rounded-circle img-perfil" src="{{this.usuario.urlImagemUsuario}}"
+                            alt="Foto do usuarie">
+                        <a href="#modalEditar" data-toggle="modal" aria-label="Editar perfil">
                             <i class="fa fa-cog fs-26" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -59,25 +60,64 @@
 
     <div class="row d-flex justify-content-center mb-3">
         <div class="card w-75">
-            <h4>Suas postagens</h4>
+            <h4 class="text-center mt-3 mb-3">Suas postagens</h4>
             <hr class="w-100 text-muted mt-0">
+            <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.tituloPostagem}}</h5>
+                        <p class="card-text">{{item.descricaoPostagem}}</p>
+                        <p>
+                            Postado em: <a href="#"
+                                [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
+                        </p>
+                    </div>
+                    <div class="card-footer p-1 d-flex justify-content-center">
+                        <p class="text-right text-weight-bold"><small>{{item.data | date:'dd/MM/yyyy'}} às {{item.data |
+                                date:'HH:mm'}}</small></p>
+
+                    </div>
+                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem" (click)="idDaPostagem(item.idPostagem)">Editar</a>
+                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem" (click)="idDaPostagem(item.idPostagem)">Apagar</a>
+                    <hr class="w-100 text-muted mt-1">
+                </div>
+
+            </div>
         </div>
     </div>
 
+
+
     <div class="row d-flex justify-content-center">
         <div class="card w-75 mb-3">
-            <h4>Seus grupos</h4>
-            <hr class="w-100 text-muted mt-0">
+            <h4 class="text-center mt-3 mb-3">Seus Grupos</h4>
+            <hr class="w-100 text-muted mt-0 mb-5">
+            <div class="card-deck">
+                <div class="card" style="width: 18rem;" *ngFor='let item of usuario.listaGrupoUsuario'>
+                    <div class="card-header">
+                        {{item.temaGrupo}}
+                    </div>
+                    <img class="card-img-top" src="{{item.urlImagemGrupo}}" alt="Imagem do Grupo">
+                    <div class="card-body">
+                        <p class="card-text">{{item.descricaoGrupo}}</p>
+                    </div>
+                    <div class="card-footer">
+                        {{item.categoriaGrupo}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row d-flex justify-content-center h-100">
         <div class="card w-75 mb-3">
-            <h4>Deletar perfil</h4>
-            <h6 class="text-danger">*Está é uma ação permanente e não poderá ser desfeita</h6>
+            <h4 class="text-center mt-3 mb-3">Deletar Perfil</h4>
+            <h6 class="text-danger mr-3 ml-3">*Está é uma ação permanente e não poderá ser desfeita</h6>
             <hr class="w-100 text-muted mt-0">
             <div class="d-flex justify-content-end mb-3 mr-3">
-                <button class="btn btn-outline-danger" data-toggle="modal"data-target="#modalExcluir">Excluir Perfil</button>
+                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modalExcluir">Excluir
+                    Perfil</button>
             </div>
         </div>
     </div>
@@ -88,73 +128,147 @@
 </div>
 
 <!--Modal para edição de perfil-->
-<div class="modal fade" id="modalEditar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditar" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="modalEditarLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalEditarLabel">Editar Usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Usuário</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome" id="nome"
+                        placeholder="Seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email" name="usuario"
+                        id="usuario" placeholder="Seu email">
+                </div>
+
+                <div class="form-group">
+                    <label for="foto">Foto</label>
+                    <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text" name="usuario"
+                        id="foto" placeholder="Link da foto">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input (input)='confirmarSenha($event)' class="form-control" type="password" senha="senha"
+                        id="senha" placeholder="Sua senha">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmarsenha">Confirmar Senha</label>
+                    <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password" name="confirmarsenha"
+                        id="confirmarsenha" placeholder="Confirme sua senha">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal"
+                    (click)='atualizarUsuario()'>Atualizar</button>
+            </div>
         </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label for="nome">Nome</label>
-                <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome" id="nome"
-                placeholder="Seu nome">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email" name="usuario" id="usuario"
-                placeholder="Seu email">
-            </div>
-
-            <div class="form-group">
-                <label for="foto">Foto</label>
-                <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text" name="usuario" id="foto"
-                placeholder="Link da foto">
-            </div>
-
-            <div class="form-group">
-                <label for="senha">Senha</label>
-                <input (input)='confirmarSenha($event)' class="form-control" type="password" senha="senha" id="senha"
-                placeholder="Sua senha">
-            </div>
-
-            <div class="form-group">
-                <label for="confirmarsenha">Confirmar Senha</label>
-                <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password" name="confirmarsenha"
-                id="confirmarsenha" placeholder="Confirme sua senha">
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal" (click)='atualizarUsuario()'>Atualizar</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <!--Modal para excluir-->
-<div class="modal fade" id="modalExcluir" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+<div class="modal fade" id="modalExcluir" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="modalExcluirLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalExcluirLabel">Excluir Perfil</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Excluir Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-danger">Lembre que esta ação é permanente e não poderá ser desfeita.</h5>
+                <h5 class="text-danger">Todos os seus grupos e suas postagens também serão excluídos.</h5>
+                <h5 class="text-danger">Deseja realmente excluir seu perfil?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)='deletarUsuario()'>Excluir
+                    Perfil</button>
+            </div>
         </div>
-        <div class="modal-body">
-          <h5 class="text-danger">Lembre que esta ação é permanente e não poderá ser desfeita.</h5>
-          <h5 class="text-danger">Todos os seus grupos e suas postagens também serão excluídos.</h5>
-          <h5 class="text-danger">Deseja realmente excluir seu perfil?</h5>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)='deletarUsuario()'>Excluir Perfil</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+
+<!--Modal para edição de postagem-->
+<div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPostagemLabel">Editar Postagem
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="titulo">Título da Postagem</label>
+                        <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
+                            id="titulo" placeholder="Informe o título da postagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagem">Imagem</label>
+                        <input [(ngModel)]='postagem.urlImagemPostagem' name="imagem" type="text" class="form-control"
+                            id="imagem" placeholder="Insira o link de uma imagem">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especialidade"></label>
+                        <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade" type="text"
+                            class="form-control" id="especialidade" placeholder="Insira a especialidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publicacao">Publicação</label>
+                        <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
+                            id="publicacao" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="atualizar()">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal para excluir postagem-->
+<div class="modal fade" id="modalExcluirPostagem" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalExcluirLabel">Excluir Postagem</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-danger">Lembre que esta ação é permanente e não poderá ser desfeita.</h5>
+                <h5 class="text-danger">Deseja realmente excluir sua postagem?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletarPostagem()" >Sim</button>
+            </div>
+        </div>
+    </div>
+</div>
