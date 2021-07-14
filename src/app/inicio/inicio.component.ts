@@ -15,8 +15,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(){
     if(environment.tokenUsuario == ""){
-
-      this.router.navigate(["/entrar"])
+        this.router.navigate(["/entrar"])
     }
   }
 

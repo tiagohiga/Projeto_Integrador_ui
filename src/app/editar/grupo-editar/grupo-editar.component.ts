@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Grupo } from 'src/app/model/Grupo';
 import { Usuario } from 'src/app/model/Usuario';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { GrupoService } from 'src/app/service/grupo.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class GrupoEditarComponent implements OnInit {
   constructor(
     private grupoService: GrupoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -34,9 +36,8 @@ export class GrupoEditarComponent implements OnInit {
   atualizarGrupo(){
     this.grupoService.putGrupo(this.grupo, this.idGrupo).subscribe((resp =>{
         this.grupo = resp
-        alert('Grupo Atualizado!!!')
+        this.alertas.showAlertSuccess('Grupo atualizado com sucesso')
         this.router.navigate(['/grupo'])
-
     }))
   }
 }

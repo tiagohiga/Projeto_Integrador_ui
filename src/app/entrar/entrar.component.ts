@@ -31,13 +31,6 @@ export class EntrarComponent implements OnInit {
       environment.emailUsuario = this.usuarioLogin.emailUsuario
       environment.idUsuario = this.usuarioLogin.idUsuario
       environment.urlImagemUsuario = this.usuarioLogin.urlImagemUsuario
-
-      console.log(environment.tokenUsuario)
-      console.log(environment.nomeUsuario)
-      console.log(environment.crmUsuario)
-      console.log(environment.emailUsuario)
-      console.log(environment.idUsuario)
-      console.log(environment.urlImagemUsuario)
   
      this.router.navigate(['/inicio'])
 

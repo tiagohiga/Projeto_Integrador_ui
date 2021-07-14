@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { UsuarioService } from '../service/usuario.service';
 
@@ -20,7 +21,8 @@ export class UsuarioComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -53,11 +55,11 @@ export class UsuarioComponent implements OnInit {
 
   atualizarUsuario(){
     if(this.usuario.senhaUsuario != this.confirmaSenha){
-      alert("As senhas não correspondem")
+      this.alertas.showAlertDanger("As senhas não correspondem")
     }else{
       this.usuarioService.putUsuario(this.idUser, this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
-        alert('Perfil atualizado com sucesso! Faça login novamente')
+        this.alertas.showAlertSuccess('Perfil atualizado com sucesso! Faça login novamente')
         environment.idUsuario = 0
         environment.nomeUsuario = ""
         environment.emailUsuario = ""
@@ -72,7 +74,7 @@ export class UsuarioComponent implements OnInit {
 
   deletarUsuario(){
     this.usuarioService.deleteUsuario(this.idUser).subscribe(() => {
-      alert("Usuário deletado com sucesso")
+      this.alertas.showAlertInfo("Usuário deletado com sucesso")
       this.router.navigate(['/entrar'])
     })
   }

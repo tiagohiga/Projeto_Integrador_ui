@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
+import { AlertasService } from '../service/alertas.service';
 import { GrupoService } from '../service/grupo.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class GrupoComponent implements OnInit {
   constructor(
     private grupoService: GrupoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -55,7 +57,7 @@ export class GrupoComponent implements OnInit {
 
   deletarGrupo(id: number){
     this.grupoService.deleteGrupo(id).subscribe(() =>{
-      alert('APAGOU!!!')
+      this.alertas.showAlertInfo('Grupo removido com sucesso')
       this.router.navigate(['/inicio'])
 
     })

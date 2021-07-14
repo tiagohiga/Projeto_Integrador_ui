@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { GrupoService } from '../service/grupo.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private grupoService: GrupoService,
+    private alertas: AlertasService
   ) {this.router.routeReuseStrategy.shouldReuseRoute = () => false;}
 
   ngOnInit() {
@@ -39,15 +41,16 @@ export class MenuComponent implements OnInit {
   cadastrar() {
     this.grupoService.postGrupo(this.grupo).subscribe((resp: Grupo) => {
       this.grupo = resp
-      alert("Grupo criadoo uhuuul!")
+      this.alertas.showAlertSuccess("Grupo criado com sucesso")
       this.grupo = new Grupo()
+      this.router.navigate(['/inicio'])
     })
   }
 
   criarNovoGrupo(){
     this.grupoService.postNovoGrupo(this.idUser, this.grupo).subscribe((resp: Grupo) => {
       this.grupo = resp
-      alert("Será que vai mesmo")
+      this.alertas.showAlertSuccess("Grupo criado com sucesso")
       this.grupo = new Grupo()
     })
   }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { GrupoEditarComponent } from './editar/grupo-editar/grupo-editar.compone
 import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
+import { AlertasComponent } from './alertas/alertas.component';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,16 @@ import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
     GrupoEditarComponent,
     GrupoDeletarComponent,
     UsuarioComponent,
-    GrupoPaginaComponent
+    GrupoPaginaComponent,
+    AlertasComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
