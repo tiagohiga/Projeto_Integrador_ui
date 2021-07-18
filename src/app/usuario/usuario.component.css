@@ -18,7 +18,7 @@
     margin: 0 auto;
 }
 .card-body{
-    background-color: #c9dddd;
+    background-color: #fff;
    /* box-shadow: 5px 5px 5px rgb(12, 77, 97); */
 }
 .container-img .fa-cog{
@@ -39,7 +39,17 @@
     font-size: 26pt;
 }
 
+
+.bg-card{
+    background-color: #fff;
+}
+
+
+
 .icon-hover:hover{
     opacity: 0.5;
     cursor: pointer;
+}
+.bg{
+    background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
 }

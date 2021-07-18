@@ -3,12 +3,26 @@ a{
     color: #FFFFFFFF;
 }
 
+.bg
+{
+ background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
+   /*background-color: #97e4ee;*/
+
+}
+
 a:hover{
     color: #004557;
 }
 
-.rodape {
-    position: absolute;
+.page-footer bg fs-10{
     bottom: 0;
     width: 100%;
+    position: fixed;
+    left: 0;
+}
+
+
+.fs-10{
+    font-size: 15pt;
+    
 }
