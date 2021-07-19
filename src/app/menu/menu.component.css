@@ -8,9 +8,6 @@
 .fs-12{
     font-size: 12pt;
 }
-a{
-    cursor: pointer;
-}
 
 .fs-10{
     font-size: 10pt;
@@ -24,43 +21,9 @@ a{
     opacity: 0.5;
 }
 
-@media screen and (min-width: 768px){
-    .bordainput{
-        width: 19rem;
-    }
-}
-
-@media screen and (min-width: 0px) and (max-width: 767px){
-    .esconder-texto{
-        display: none;
-    }
-
-    .aumentar-img{
-        width: 40px;
-        height: 40px;
-    }
-
-    .aumentar-icone{
-        font-size: 24pt;
-        margin-right: 10pt;
-    }
-}
-
-
-@media screen and (min-width: 592px) {
-    .exibir-buscador{
-        display: none;
-    }
-}
-
-@media screen and (max-width: 592px) {
-    .esconder-busca{
-        display: none;
-    }
-}
-
-.borda{
-    border-radius: 33px;
+.alinhar{
+    display: flex;
+    align-items: center;
 }
 
 .navbar-nav .dropdown-menu {
@@ -68,8 +31,8 @@ a{
 }
 
 .img-usuario{
-    width: 35px;
-    height: 35px;
+    width: 23px;
+    height: 23px;
     object-fit: cover;
 }
 
@@ -79,3 +42,38 @@ a{
     align-items: flex-end;
     object-fit: cover;
 }
+
+.borda{
+    border-radius: 33px;
+}
+
+a{
+    cursor: pointer;
+}
+
+h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+    h6 {
+        display: none;
+    }
+
+    span {
+        font-size: 20pt;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .margem-pesquisa{
+        margin-left: 100px;
+    }
+
+    .margem-icones{
+        margin-right: 30px;
+    }
+}
+
