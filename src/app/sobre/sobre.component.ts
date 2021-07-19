@@ -15,9 +15,11 @@ export class SobreComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    if(environment.tokenUsuario =''){
+    if(environment.tokenUsuario = ''){
       this.router.navigate(['/entrar'])
     }
+
+    console.log(environment.tokenUsuario)
   }
 
 }
