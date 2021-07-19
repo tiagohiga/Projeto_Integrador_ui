@@ -39,9 +39,12 @@
     font-size: 26pt;
 }
 
+
 .bg-card{
     background-color: #fff;
 }
+
+
 
 .icon-hover:hover{
     opacity: 0.5;
