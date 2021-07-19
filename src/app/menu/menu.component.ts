@@ -21,22 +21,27 @@ export class MenuComponent implements OnInit {
   divVisivel = true
   buscaVisivel = false
 
-  nomeContainer: string
-  larguraTela: number
-
   pesquisaTema: string
 
+  larguraTela: number
+  width: number
 
+  exibe: boolean = true
+  exibeBusca: boolean = true
+  exibeBarra: boolean = true
 
   constructor(
     private router: Router,
     private grupoService: GrupoService,
     private alertas: AlertasService
-  ) {this.router.routeReuseStrategy.shouldReuseRoute = () => false;}
+  ) {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.width = 30
+    }
 
   ngOnInit() {
-    this.larguraTela = window.innerWidth
-    this.atribuirContainer()
+    this.verificarTela(window.innerWidth)
+    this.tamanhoBarra()
   }
 
   cadastrar() {
@@ -56,31 +61,14 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  mostrarBusca() {
-    this.divVisivel = false
-    this.buscaVisivel = true
-  }
-
-  esconderPesquisa() {
-    this.divVisivel = true
-    this.buscaVisivel = false
-  }
-
   sair(){
     environment.tokenUsuario = ''
     this.router.navigate(['/entrar'])
   }
 
-  atribuirContainer(){
-    if(this.larguraTela > 767){
-      this.nomeContainer = "container"
-    }else{
-      this.nomeContainer = "container-fluid"
-    }
-  }
-
   pesquisarTema(){
     this.router.navigate(['/grupo', this.pesquisaTema])
+    !this.exibe
   }
 
   verificarCrm(){
@@ -88,6 +76,47 @@ export class MenuComponent implements OnInit {
       return true
     } else{
       return false
+    }
+  }
+
+  exibirBuscaCompleta(){
+    this.exibe = !this.exibe
+    this.tamanhoBarra()
+  }
+
+  onResize(event: any){
+    this.larguraTela = event.target.innerWidth
+    this.verificarTela(this.larguraTela)
+    this.tamanhoBarra()
+  }
+
+  verificarTela(largura: number){
+    if(largura < 490){
+      this.exibeBusca = true
+      this.exibeBarra = false
+    }else{
+      this.exibeBusca = false
+      this.exibeBarra = true
+    }
+  }
+
+  tamanhoBarra(){
+    if(this.exibeBusca == false){
+      if(this.exibe){
+        this.width = 30
+        this.exibeBarra = true
+      }else{
+        this.width = 100
+        this.exibeBarra = true
+      }
+    }else{
+      if(this.exibe){
+        this.exibeBarra = false
+        this.width = 0
+      }else{
+        this.exibeBarra = true
+        this.width = 100
+      }
     }
   }
 
