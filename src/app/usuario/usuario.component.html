@@ -1,199 +1,198 @@
 <body class="bg">
-    
 
-<div class="container">
+    <div class="container-fluid ">
 
-    <div class="row">
-        <div class="col-md-12 w-75">
-            <h1 class="text-center my-3">Olá, {{this.usuario.nomeUsuario}}</h1>
-        </div>
-    </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
 
-    <div class="row">
-        <div class="col-md-12 d-flex justify-content-center">
+                <div class="card bord-card d-flex justify-content-center">
+                    <div class="card-body img-capa bord-card">
 
-            <div class="card my-3 w-75">
-                <div class="card-body">
-                    <div class="container-img text-center">
-                        <img class="rounded-circle img-perfil" src="{{this.usuario.urlImagemUsuario}}"
-                            alt="Foto do usuarie">
-                            
-                        <a href="#modalEditar" data-toggle="modal" aria-label="Editar perfil">
-                           
-                            <i class="fa fa-cog fs-26" aria-hidden="true"> <h4>Editar</h4></i>
-                        </a>
+                        <div class="d-flex justify-content-end align-items-start">
+                            <a href="#modalEditar" data-toggle="modal" aria-label="Editar perfil">
+
+                                <i class="fs-16" aria-hidden="true">
+                                    <h4 class="fa fa-cog fs-16">Editar</h4>
+                                </i>
+                            </a>
+                        </div>
+
+                        <div class="container-img d-flex align-items-end mt-4">
+                            <img class="rounded-circle img-perfil mt-5" src="{{this.usuario.urlImagemUsuario}}"
+                                alt="Foto do usuarie">
+                        </div>
                     </div>
-                    <div class="mx-3">
-                        <div class="row">
-                            <hr class="w-100 text-muted mt-1">
-                            <div class="col-md-4">
-                                <h6 class="text-weight-bold fs-16">Nome:</h6>
-                            </div>
-    
-                            <div class="col-md-8">
-                                <h4 class="fs-13">{{this.usuario.nomeUsuario}}</h4>
-                            </div>
-                        </div>
-    
-                        <div class="row" *ngIf='this.verificarCrm()'>
-                            <hr class="w-100 text-muted mt-1">
-                            <div class="col-md-4">
-                                <h6 class="text-weight-bold fs-16">CRM:</h6>
-                            </div>
-    
-                            <div class="col-md-8">
-                                <h4 class="fs-10">{{this.usuario.crmUsuario}}</h4>
-                            </div>
-                        </div>
-    
-                        <div class="row">
-                            <hr class="w-100 text-muted mt-1">
-                            <div class="col-md-4">
-                                <h6 class="text-weight-bold fs-16">E-mail:</h6>
-                            </div>
-    
-                            <div class="col-md-8">
-                                <h4 class="fs-13">{{this.usuario.emailUsuario}}</h4>
+
+
+                    <div class="card-body bord-card mt-5">
+                        <div class="mx-3">
+                                
+                                <div class="d-flex justify-content-center">
+                                    <h4 class="fs-16">{{iniciar}} {{this.usuario.nomeUsuario}}</h4>
+                                </div>
+                                
+                        
+                                <div class="d-flex justify-content-center" *ngIf="confirmarCrm">
+                                    <h6 class="fs-12 text-secondary"> <small>CRM: {{this.usuario.crmUsuario}}</small></h6>
+                                </div>
+                        
+
+                            <div class="row">
+                                <hr class="w-100 text-muted mt-0">
+                                <div class="col-md-0">
+                                    <h6 class="text-weight-bold fs-14 mb-0">E-mail:</h6>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <p class="mb-0">{{this.usuario.emailUsuario}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
+
+        <!--GRUPOS-->
+
+        <div class="row d-flex justify-content-center bord-card mt-3">
+            <div class="card w-75">
+                <div class="d-flex justify-content-center">
+                    <h1 class="*">Grupos</h1>
                 </div>
-<!--POSTAGENS-->
-                
+                <hr class="w-100 text-muted">
 
-    <div class="row d-flex justify-content-center mb-3">
-        <div class="card w-75">
-            <h4 class="text-center mt-3 mb-3">Suas postagens</h4>
-            <hr class="w-100 text-muted mt-0">
-            <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
+                <div class="d-flex justify-content-center mt-4">
+                    <div class="form-group slide-grupo" *ngFor='let item of usuario.listaGrupoUsuario'>
+                        <div class="card-deck mr-1">
+                            <div class="card d-flex justify-content-center bord-card2 categoriaAnimacao" id="carouselExampleControls">
+                                <a class="d-flex justify-content-center mt-2" [routerLink]="['/grupos', idUser]">
+                                    <img class="card-img-top grupo-img" src="{{item.urlImagemGrupo}}"
+                                        alt="Imagem de capa do card">
+                                </a>
 
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem"
-                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-cogs text-dark icon-hover"
-                                aria-hidden="true"></i>
-                        </a>
-                        <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem"
-                            (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-trash text-danger icon-hover"
-                                aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{item.tituloPostagem}}</h5>
-                        <p class="card-text">{{item.descricaoPostagem}}</p>
-                        <p>
-                            Postado em: <a href="#"
-                                [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
-                        </p>
-                    </div>
-                    <div class="card-footer p-1 d-flex justify-content-center">
-                        <p class="text-right text-weight-bold"><small>{{item.data | date:'dd/MM/yyyy'}} às {{item.data |
-                                date:'HH:mm'}}</small></p>
+                                <div class="card-footer mt-2">
+                                    <h5 class="card-title text-center">{{item.temaGrupo}}</h5>
+                                    <p class="card-text"></p>
+                                    <p class="card-text text-muted text-center"><small
+                                           >{{item.categoriaGrupo}}</small></p>
+                                </div>
 
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="row d-flex justify-content-center">
-        <div class="card w-75 mb-3">
-            <h4 class="text-center mt-3 mb-3">Seus Grupos</h4>
-            <hr class="w-100 text-muted mt-0 mb-5">
-            <div class="card-deck">
-                <div class="card" style="width: 18rem;" *ngFor='let item of usuario.listaGrupoUsuario'>
-                    <div class="card-header text-center">
-                        {{item.temaGrupo}}
-                    </div>
-                    <img class="card-img-top text-center" src="{{item.urlImagemGrupo}}" alt="Imagem do Grupo">
-                    <div class="card-body">
-                        <p class="card-text text-center">{{item.descricaoGrupo}}</p>
-                    </div>
-                    <div class="card-footer text-center">
-                        {{item.categoriaGrupo}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <!--POSTAGENS-->
+
+
+        <div class="row d-flex justify-content-center mb-3 mt-4">
+            <div class="card w-75">
+                <h4 class="text-center mt-3 mb-3">Suas postagens</h4>
+                <hr class="w-100 text-muted mt-0">
+                <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
+
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <a class="text-info mr-3" data-toggle="modal" data-target="#modalPostagem"
+                                (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-cogs text-dark icon-hover"
+                                    aria-hidden="true"></i>
+                            </a>
+                            <a class="text-danger" data-toggle="modal" data-target="#modalExcluirPostagem"
+                                (click)="idDaPostagem(item.idPostagem)"><i class="fa fa-trash text-danger icon-hover"
+                                    aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.tituloPostagem}}</h5>
+                            <p class="card-text">{{item.descricaoPostagem}}</p>
+                            <hr class="w-100 ext-muted mt-2">
+                            <img src="{{item.urlImagemPostagem}}" class="justify-content-center" alt="Imagem da Postagem">
+                            <hr class="w-100 ext-muted mt-1">
+                            <p>
+                                Postado em: <a href="#"
+                                    [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
+                            </p>
+                        </div>
+                        <div class="card-footer p-1 d-flex justify-content-center">
+                            <p class="text-right text-weight-bold"><small>{{item.data | date:'dd/MM/yyyy'}} às
+                                    {{item.data |
+                                    date:'HH:mm'}}</small></p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
-    <div class="row d-flex justify-content-center h-100 mb-5">
-        <div class="card w-75">
-            <h4 class="text-center mt-3 mb-3">Deletar Perfil</h4>
-            <h6 class="text-danger mr-3 ml-3 text-center">*Está é uma ação permanente e não poderá ser desfeita</h6>
-            <hr class="w-100 text-muted mt-0">
-            <div class="d-flex justify-content-center mb-3 mr-3">
-                <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modalExcluir">Excluir
-                    Perfil</button>
+
+
+    <!--MODAL EDITAR-->
+
+    <div class="modal fade" id="modalEditar" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarLabel">Editar Usuário</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome" id="nome"
+                            placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email" name="usuario"
+                            id="usuario" placeholder="Seu email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text" name="usuario"
+                            id="foto" placeholder="Link da foto">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input (input)='confirmarSenha($event)' class="form-control" type="password" senha="senha"
+                            id="senha" placeholder="Sua senha">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmarsenha">Confirmar Senha</label>
+                        <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password"
+                            name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="mr-2">
+                        <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modalExcluir">Excluir
+                            Perfil</button>
+                    </div>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)='atualizarUsuario()'>Atualizar</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="row d-flex justify-content-center">
-        <hr class="w-100 text-muted mt-0">
-    </div>
-</div>
-
-
-
-<!--MODAL EDITAR-->
-
-<div class="modal fade" id="modalEditar" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="modalEditarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalEditarLabel">Editar Usuário</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input [(ngModel)]='usuario.nomeUsuario' class="form-control" type="text" name="nome" id="nome"
-                        placeholder="Seu nome">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input [(ngModel)]='usuario.emailUsuario' class="form-control" type="email" name="usuario"
-                        id="usuario" placeholder="Seu email">
-                </div>
-
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control" type="text" name="usuario"
-                        id="foto" placeholder="Link da foto">
-                </div>
-
-                <div class="form-group">
-                    <label for="senha">Senha</label>
-                    <input (input)='confirmarSenha($event)' class="form-control" type="password" senha="senha"
-                        id="senha" placeholder="Sua senha">
-                </div>
-
-                <div class="form-group">
-                    <label for="confirmarsenha">Confirmar Senha</label>
-                    <input [(ngModel)]='usuario.senhaUsuario' class="form-control" type="password" name="confirmarsenha"
-                        id="confirmarsenha" placeholder="Confirme sua senha">
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal"
-                    (click)='atualizarUsuario()'>Atualizar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

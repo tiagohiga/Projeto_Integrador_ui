@@ -24,6 +24,10 @@ export class UsuarioComponent implements OnInit {
   postagem: Postagem = new Postagem ()
   idPostagem:number
 
+  iniciar: string
+
+  confirmarCrm: boolean = false
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -40,13 +44,17 @@ export class UsuarioComponent implements OnInit {
     }
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUser)
+    this.verificarCrm()
+    console.log(environment.crmUsuario)
   }
 
   verificarCrm(){
-    if(this.usuario.crmUsuario != ''){
-      return false
+    if(environment.crmUsuario != null){
+      this.confirmarCrm = true
+      this.iniciar = "Dr(a)."
     }else{
-      return true
+     this.confirmarCrm = false
+     this.iniciar = ""
     }
   }
 

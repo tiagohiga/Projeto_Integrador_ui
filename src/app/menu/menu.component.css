@@ -79,3 +79,11 @@ a{
     align-items: flex-end;
     object-fit: cover;
 }
+
+
+.fotonull{
+    background-image: url(https://i.imgur.com/81RzCu5.jpg);
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
