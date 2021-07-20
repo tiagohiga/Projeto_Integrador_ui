@@ -29,7 +29,32 @@ img.bg {
     /*border-style: double;*/
 }
 
+.moldura{
+  padding: 15px;
+}
+
+.margem{
+  margin: none;
+  padding: 1px;
+}
+
+.borda{
+ border-radius: 1%;
+}
+
 .fs-18{
+  font-size: 18pt;
+  padding: 7px;
+}
+
+.fs-19{
+  font-family: "Poppins", sans-serif;
+  font-size: 20pt;
+  padding: 7px;
+}
+
+.fs-16{
+  font-family: "Poppins", sans-serif;
   font-size: 18pt;
   padding: 7px;
 }
@@ -49,9 +74,9 @@ img.bg {
 
 .button{
 
-  width: 100%;
+  width: 95%;
   border-radius: 8px;
-  margin-top: 1.5rem;
+  margin-top: 5px;
 }
 
 .form-control:focus{ 
