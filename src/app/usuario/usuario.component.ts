@@ -24,7 +24,7 @@ export class UsuarioComponent implements OnInit {
   postagem: Postagem = new Postagem ()
   idPostagem:number
 
-  iniciar: string
+  status: string
 
   confirmarCrm: boolean = false
 
@@ -51,10 +51,10 @@ export class UsuarioComponent implements OnInit {
   verificarCrm(){
     if(environment.crmUsuario != null){
       this.confirmarCrm = true
-      this.iniciar = "Dr(a)."
+      this.status = "Dr(a)."
     }else{
      this.confirmarCrm = false
-     this.iniciar = ""
+     this.status = ""
     }
   }
 
