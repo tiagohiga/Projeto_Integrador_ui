@@ -17,9 +17,6 @@
     font-size: 16pt;
 }
 
-.botao:hover{
-    opacity: 0.5;
-}
 
 .alinhar{
     display: flex;
