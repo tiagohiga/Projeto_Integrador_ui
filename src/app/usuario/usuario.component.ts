@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { AlertasService } from '../service/alertas.service';
-import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { UsuarioService } from '../service/usuario.service';
 
@@ -15,14 +14,18 @@ import { UsuarioService } from '../service/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  usuario: Usuario = new Usuario
-  usuario2: Usuario = new Usuario
+  usuario: Usuario = new Usuario ()
+  usuario2: Usuario = new Usuario ()
 
   idUser: number
   confirmaSenha: string
 
   postagem: Postagem = new Postagem ()
   idPostagem:number
+
+  status: string
+
+  confirmarCrm: boolean = false
 
   constructor(
     private router: Router,
@@ -40,13 +43,17 @@ export class UsuarioComponent implements OnInit {
     }
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUser)
+    this.verificarCrm()
+    console.log(environment.crmUsuario)
   }
 
   verificarCrm(){
-    if(this.usuario.crmUsuario != ''){
-      return false
+    if(environment.crmUsuario != null){
+      this.confirmarCrm = true
+      this.status = "Dr(a)."
     }else{
-      return true
+     this.confirmarCrm = false
+     this.status = ""
     }
   }
 
@@ -65,6 +72,7 @@ export class UsuarioComponent implements OnInit {
     this.usuario2.nomeUsuario = this.usuario.nomeUsuario
     this.usuario2.senhaUsuario = this.usuario.senhaUsuario
     this.usuario2.urlImagemUsuario = this.usuario.urlImagemUsuario
+    this.usuario2.urlCapa = this.usuario.urlCapa
 
     if(this.usuario.senhaUsuario != this.confirmaSenha){
       this.alertas.showAlertDanger("As senhas não correspondem")
@@ -79,6 +87,7 @@ export class UsuarioComponent implements OnInit {
         environment.tokenUsuario = ""
         environment.crmUsuario = ""
         environment.urlImagemUsuario = ""
+        environment.urlCapa = ""
         this.router.navigate(['/entrar'])
       })
     }

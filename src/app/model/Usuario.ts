@@ -8,6 +8,7 @@ export class Usuario{
     public senhaUsuario: string
     public crmUsuario: string
     public urlImagemUsuario: string
+    public urlCapa: string
     public listaGrupoUsuario: Grupo[]
     public listaPostagemUsuario: Postagem[]
 }

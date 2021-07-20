@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
 
   idUser = environment.idUsuario
 
+
   grupo: Grupo = new Grupo()
   nome = environment.nomeUsuario
   foto = environment.urlImagemUsuario
@@ -42,22 +43,15 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.verificarTela(window.innerWidth)
     this.tamanhoBarra()
+    console.log(this.idUser)
   }
 
-  cadastrar() {
-    this.grupoService.postGrupo(this.grupo).subscribe((resp: Grupo) => {
+  criarNovoGrupo(){
+    this.grupoService.postGrupo(this.grupo, this.idUser).subscribe((resp: Grupo) => {
       this.grupo = resp
       this.alertas.showAlertSuccess("Grupo criado com sucesso")
       this.grupo = new Grupo()
       this.router.navigate(['/inicio'])
-    })
-  }
-
-  criarNovoGrupo(){
-    this.grupoService.postNovoGrupo(this.idUser, this.grupo).subscribe((resp: Grupo) => {
-      this.grupo = resp
-      this.alertas.showAlertSuccess("Grupo criado com sucesso")
-      this.grupo = new Grupo()
     })
   }
 

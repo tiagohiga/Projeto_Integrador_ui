@@ -28,12 +28,19 @@ export class GrupoService {
       return this.http.get<Grupo>(`https://rssalutem.herokuapp.com/grupo/id/${id}`, this.token)
     }
 
-    postGrupo(grupo: Grupo): Observable<Grupo>{
-      return this.http.post<Grupo>('https://rssalutem.herokuapp.com/grupo/cadastrar', grupo, this.token)
+    postGrupo(grupo: Grupo, id: number): Observable<Grupo>{
+      return this.http.post<Grupo>(`https://rssalutem.herokuapp.com/grupo/cadastrar/${id}`, grupo, this.token)
+    }
+    
+    entrarGrupo(idGrupo: number, idUsuario: number): Observable<Grupo>{
+      this.token = {
+        headers: new HttpHeaders().set('Authorization', environment.tokenUsuario)
+      }
+      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/entrar/${idGrupo}/${idUsuario}`, this.token)
     }
 
-    postNovoGrupo(idUsuario: number, grupo: Grupo): Observable<Grupo>{
-      return this.http.post<Grupo>(`https://rssalutem.herokuapp.com/usuario/cadastrar/grupo/${idUsuario}`, grupo, this.token)
+    sairGrupo(idGrupo: number, idUsuario: number): Observable<Grupo>{
+      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/sair/${idGrupo}/${idUsuario}`, this.token)
     }
 
     putGrupo(grupo: Grupo,id: number): Observable<Grupo>{

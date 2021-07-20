@@ -12,6 +12,8 @@ import { GrupoService } from '../service/grupo.service';
 })
 export class GrupoComponent implements OnInit {
 
+  idUser = environment.idUsuario
+
   listaGrupos: Grupo[]
   grupo: Grupo = new Grupo()
 
@@ -42,6 +44,15 @@ reverse = true
   pegarTodos(){
     this.grupoService.getAllGrupo().subscribe((resp:Grupo[])=>{
       this.listaGrupos = resp
+    })
+  }
+
+  entrar(idGrupo: number) {
+    this.grupoService.entrarGrupo(idGrupo, this.idUser).subscribe((resp: Grupo) => {
+      this.grupo = resp
+      this.alertas.showAlertSuccess("Grupo criado com sucesso")
+      this.grupo = new Grupo()
+      this.router.navigate(['/grupo'])
     })
   }
 
