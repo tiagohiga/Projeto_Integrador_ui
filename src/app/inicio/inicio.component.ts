@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
+import { Postagem } from '../model/Postagem';
+import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { GrupoService } from '../service/grupo.service';
+import { PostagemService } from '../service/postagem.service';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-inicio',
@@ -15,9 +20,18 @@ export class InicioComponent implements OnInit {
   totalGrupos: number
   page: number = 1
 
+  usuario: Usuario = new Usuario()
+  idUser: number = environment.idUsuario
+  eMedico: boolean = false
+
+  postagem: Postagem = new Postagem()
+
   constructor(
     private router: Router,
-    private grupoServices: GrupoService
+    private grupoServices: GrupoService,
+    private usuarioServices: UsuarioService,
+    private postagemServices: PostagemService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit(){
@@ -25,7 +39,8 @@ export class InicioComponent implements OnInit {
     if(environment.tokenUsuario == ""){
         this.router.navigate(["/entrar"])
     }
-
+    this.encontrarUsuario(this.idUser)
+    this.verificarCrm()
     this.pegarTodosGrupos()
   }
 
@@ -33,8 +48,27 @@ export class InicioComponent implements OnInit {
     this.grupoServices.getAllGrupo().subscribe((resp: Grupo[]) => {
       this.listaGrupos = resp
       this.totalGrupos = this.listaGrupos.length
-      console.log(this.totalGrupos)
     })
+  }
+
+  encontrarUsuario(id: number){
+    this.usuarioServices.getByIdUsuario(id).subscribe((resp: Usuario) => {
+      this.usuario = resp
+    })
+  }
+
+  publicarPostagem(){
+  }
+
+  sair(){
+    environment.tokenUsuario = ''
+    this.router.navigate(['/entrar'])
+  }
+
+  verificarCrm(){
+    if(environment.crmUsuario != null){
+      this.eMedico = true
+    }
   }
 
   mudarPagina(event: number){

@@ -1,9 +1,69 @@
-.capa-grupo{
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 500px;
-    width: 100%;
+.h-max{
+    height: 420px;
 }
+
+.img-container{
+    position: relative;
+    text-align: center;
+    
+    background: rgb(237,237,237);
+    background: linear-gradient(270deg, rgba(237,237,237,0.4471989479385504) 5%, rgba(0,0,0,1) 50%, rgba(232,232,232,0.45) 95%); 
+
+}
+
+.txt-grupo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-blur{
+    position: relative;
+    display: inline-block;
+  }
+  
+.img-blur:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 80px 5px #000000;
+}
+
+.nav>li>a.active,
+.nav>li>a:hover,
+.nav>li>a:focus {
+    background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
+}
+
+.fs-8{
+    font-size: 8pt;
+}
+
+.seguir{
+    padding: 0.5em 0em 0.5em 0em;
+    position: sticky;
+    top: 0px;
+}
+
+.img-medic{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.img-usuario{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.inline-block {
+    display: inline-block;
+ }
 
 .cursor-input{
     cursor: pointer;
@@ -11,4 +71,28 @@
 
 .redondo{
     border-radius: 20px;
+}
+
+@media screen and (max-width: 769px) {
+    .esconder-desc{
+        display: none;
+    }
+
+    .esconder-sobre{
+        display: none;
+    }
+
+    .h-max{
+        height: 250px;
+    }
+
+    @media screen and (max-width: 440px) {
+        .h-max{
+            height: 150px;
+        }
+    
+        h2 {
+            font-size: 12pt;
+        }
+    }
 }

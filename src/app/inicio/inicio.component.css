@@ -1,31 +1,53 @@
-.bg-principal{
-    background-color: rgba(104, 200, 245, 0.3);
+.fs-8{
+    font-size: 8pt;
 }
 
-.card{
-
-    border-radius: 20pt;
-    width: 101.2rem;
-    height: 35rem;
-    border-color: black;
-    border-style: double;
+.seguir{
+    padding: 0.5em 0em 0.5em 0em;
+    position: sticky;
+    top: 0px;
 }
 
-
-.titulocard{
-    width: 98rem;
-}
-
-.card-img-top{
-    
-    width: 101rem;
-    height: 19rem;
-    border-radius: 22pt;
-    border-color: rgb(5, 5, 5);
-    align-items: center;
+.img-usuario{
+    width: 40px;
+    height: 40px;
     object-fit: cover;
 }
 
-.ft5{
-    font-size: 5rem;
+.img-usuario-card{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.cursor-input{
+    cursor: pointer;
+}
+
+.redondo{
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 769px) {
+    .esconder-desc{
+        display: none;
+    }
+
+    .esconder-sobre{
+        display: none;
+    }
+
+    .h-max{
+        height: 250px;
+    }
+
+    @media screen and (max-width: 440px) {
+        .h-max{
+            height: 150px;
+        }
+    
+        h2 {
+            font-size: 12pt;
+        }
+    }
 }

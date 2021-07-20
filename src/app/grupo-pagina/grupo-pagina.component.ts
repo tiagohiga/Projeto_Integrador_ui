@@ -21,6 +21,7 @@ export class GrupoPaginaComponent implements OnInit {
 
   idUser = environment.idUsuario
   usuario: Usuario = new Usuario()
+  usuarioCriador: Usuario = new Usuario()
 
   postagem: Postagem = new Postagem()
   listaPostagem: Postagem[]
@@ -44,11 +45,14 @@ export class GrupoPaginaComponent implements OnInit {
 
     this.idGrupo = this.route.snapshot.params['id']
     this.findGrupoById(this.idGrupo)
+    
+    this.findUsuarioById()
   }
 
   findGrupoById(id: number){
     this.grupoService.getByIdGrupo(id).subscribe((resp: Grupo) => {
       this.grupo = resp
+      this.findUsuarioCriador()
     })
   }
 
@@ -64,6 +68,10 @@ export class GrupoPaginaComponent implements OnInit {
       this.alertas.showAlertSuccess('Postagem realizada com sucesso')
       this.postagem = new Postagem()
     })
+  }
+
+  findUsuarioCriador(){
+    this.usuarioCriador = this.grupo.listaDeUsuarios.find(x => x!== undefined)!
   }
 
 }

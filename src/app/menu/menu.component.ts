@@ -106,7 +106,7 @@ export class MenuComponent implements OnInit {
         this.width = 30
         this.exibeBarra = true
       }else{
-        this.width = 100
+        this.width = 80
         this.exibeBarra = true
       }
     }else{
@@ -115,7 +115,7 @@ export class MenuComponent implements OnInit {
         this.width = 0
       }else{
         this.exibeBarra = true
-        this.width = 100
+        this.width = 80
       }
     }
   }
