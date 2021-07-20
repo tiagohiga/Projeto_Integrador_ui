@@ -16,7 +16,6 @@ const routes: Routes = [
   {path:"cadastrar", component: CadastrarComponent},
   {path: "inicio", component: InicioComponent},
   {path: "user/:id", component: UsuarioComponent},
-
   {path: "grupo-editar/:id", component: GrupoEditarComponent},
   {path: "grupo-deletar/:id", component: GrupoDeletarComponent},
   {path: "grupos/:id", component: GrupoPaginaComponent},

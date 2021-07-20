@@ -15,7 +15,7 @@
 .img-group{
     width: 400px;
     height: 400px;
-    margin-left: 100px;
+
 }
 .main h1{
     margin-right: 100px;
@@ -27,18 +27,46 @@
     font-family: 'Lucida Sans';
 }
 
+.card-container{
+    position: relative;
+    width: 28rem;
+    perspective: 200rem;
+    height: 421px;
+}
+
+.card-container:hover .card-front{
+    transform: rotateY(180deg);
+    background-color: grey;
+}
+
+.card-container:hover .card-back{
+    transform: rotateY(0deg);
+}
+
+.card-back{
+    transform: rotateY(180deg);
+}
+
+
+.card{
+    position: absolute;
+    transition: all 0.9s;
+    height: 80%;
+    width: 100%;
+    backface-visibility: hidden;
+    background-color: #82b4b4;
+
+}
+
 
 .card-img-top{
     margin-top: 1rem;
     border-radius: 4rem;
     box-shadow:  5px 5px 15px #639595;
     width: 250px;
-    margin-left: 180px;
+
 }
 
-.card-body{
-    margin-left: 170px;
-}
 
 
 
