@@ -1,11 +1,11 @@
 a{
     text-decoration: none;
-    color: #FFFFFFFF;
+    color: rgb(0, 0, 0);
 }
 
 .bg
 {
- background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
+ background-color: #f8f8ff;
    /*background-color: #97e4ee;*/
 
 }

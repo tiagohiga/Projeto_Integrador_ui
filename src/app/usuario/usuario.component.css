@@ -9,11 +9,14 @@
     border-style: groove;
     border-color: black;
 }
+.bg-card{
+    background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1  );
+}
 
-.img-capa{
-    width: 100%;
-    height: 280px;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(https://i.imgur.com/K2PSelr.jpg);
+.img-capa2{
+    width: 52%;
+    height: 350px;
+ 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,9 +24,10 @@
     
 }
 
-.card-pos{
+.img-capa{
     width: 100%;
-    border-radius: 20rem;
+    height: 240px;
+    
 }
 
 .container-img{
@@ -78,7 +82,6 @@
     border-radius: 20px;
 }
 
-
 .fs-10{
     font-size: 10pt;
 }
@@ -95,21 +98,23 @@
     font-size: 16pt;
 }
 
+.fs-20{
+    font-size: 20pt;
+}
+
+
 .fs-26{
     font-size: 26pt;
 }
 
-
-.bg-card{
-    background-color: #fff;
+.fa-cog{
+    color: rgb(68, 67, 67);
 }
-
-
 
 .icon-hover:hover{
     opacity: 0.5;
     cursor: pointer;
 }
 .bg{
-    background:  -webkit-linear-gradient(right, #959697 , #dededf );
+    background-color: #f8f8ff;
 }
