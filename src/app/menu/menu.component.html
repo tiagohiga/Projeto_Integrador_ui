@@ -1,57 +1,59 @@
 <div class="">
-    <div class="navbar navbar-expand navbar-light bg" (window:resize)="onResize($event)">
+  <div class="navbar navbar-expand navbar-light bg" (window:resize)="onResize($event)">
 
-      <div *ngIf='exibe' class="alinhar">
-        <a class="navbar-brand mr-2" routerLink='/inicio'>
-            <img src="https://i.imgur.com/FguOnQN.png" class="d-inline-block align-top img-fluid rounded-circle imglogo" alt=""
-                loading="lazy">
-        </a>
+    <div *ngIf='exibe' class="alinhar">
+      <a class="navbar-brand mr-2" routerLink='/inicio'>
+        <img src="https://i.imgur.com/FguOnQN.png" class="d-inline-block align-top img-fluid rounded-circle imglogo"
+          alt="" loading="lazy">
+      </a>
 
-        <h6 class="mr-2 fs-16">Salutem</h6>
+      <h6 class="mr-2 fs-16">Salutem</h6>
     </div>
 
-      <div class="input-group margem-pesquisa" [style.width.%]="width" (click)='exibirBuscaCompleta()'>
-        <div class="input-group-prepend">
-            <button class="btn btn-dark borda" type="button">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-        </div>
-        <input [(ngModel)]='pesquisaTema' type="text" class="form-control borda" placeholder="Procurar" aria-label="Username"
-            aria-describedby="basic-addon1" *ngIf='exibeBarra'>
+    <div class="input-group margem-pesquisa" [style.width.%]="width" (click)='exibirBuscaCompleta()'>
+      <div class="input-group-prepend">
+        <button class="btn btn-dark borda" type="button" (click)='pesquisarTema()'>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+      <input [(ngModel)]='pesquisaTema' type="text" class="form-control borda" placeholder="Procurar"
+        aria-label="Username" aria-describedby="basic-addon1" *ngIf='exibeBarra'>
     </div>
 
     <div *ngIf='exibe' class="ml-auto mr-2">
       <div class="row margem-icones">
 
-          <div class="col text-center px-2 botao" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <a class="fa fa-users text-dark" > </a>
-              <h6>Grupos</h6>
+        <div class="col text-center px-2">
+          <a class="fa fa-users text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"> </a>
+          <h6>Grupos</h6>
 
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a routerLink="/grupo" class="dropdown-item">Seus Grupos</a>
-                  <a *ngIf='verificarCrm()' class="dropdown-item" data-toggle="modal" data-target="#modalNovoGrupo">Novo Grupo</a>
-              </div>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a routerLink="/grupo" class="dropdown-item">Seus Grupos</a>
+            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#ExemploModalCentralizado">Novo
+              Grupo</a>
           </div>
+        </div>
 
-          <div class="col text-center px-2 botao" [routerLink]="['/user', idUser]">
-              <a>
-                  <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
-              </a>
-              <h6>Eu</h6>
-          </div>
-  
-          <div class="col text-center px-2 botao" (click)="sair()">
-              <a class="fa fa-sign-out text-dark"> </a>
-              <h6>Sair</h6>
-          </div>
+        <div class="col text-center px-2" [routerLink]="['/user', idUser]">
+          <a>
+            <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
+          </a>
+          <h6>Eu</h6>
+        </div>
+
+        <div class="col text-center px-2" (click)="sair()">
+          <a class="fa fa-sign-out text-dark"> </a>
+          <h6>Sair</h6>
+        </div>
       </div>
-  </div>
-
     </div>
+
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="modalNovoGrupo" tabindex="-1" role="dialog"
+<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
   aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
