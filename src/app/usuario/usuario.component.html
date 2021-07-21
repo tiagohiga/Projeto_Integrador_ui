@@ -103,14 +103,9 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{item.tituloPostagem}}</h5>
+                        <a [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
                         <p class="card-text">{{item.descricaoPostagem}}</p>
-                        <hr class="w-100 ext-muted mt-2">
-                        <img src="{{item.urlImagemPostagem}}" class="justify-content-center" alt="Imagem da Postagem">
-                        <hr class="w-100 ext-muted mt-1">
-                        <p>
-                            Postado em: <a href="#"
-                                [routerLink]="['/grupos', item.grupoPostagem.idGrupo]">{{item.grupoPostagem.temaGrupo}}</a>
-                        </p>
+                        
                     </div>
                     <div class="card-footer p-1 d-flex justify-content-center">
                         <p class="text-right text-weight-bold"><small>{{item.data | date:'dd/MM/yyyy'}} às

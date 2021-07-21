@@ -10,85 +10,87 @@
                         seguro e acessível!
                     </p>
                 </div>
-               
+
             </div>
-          
+
         </div>
 
         <div class="col-md-6 mt-5 mb-5">
 
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-0">
-                        <div class="bg-light card-body ml-6 ml-6 borda moldura">
-
-                            <h4 class="text-center fs-18"> Cadastrar </h4>
-
-                            <div class="form-group input-field">
-                                <label for="nome"></label>
-                                <input [(ngModel)]='usuario.nomeUsuario' class="form-control borda button" type="text"
-                                    name="nome" id="nome" placeholder="Seu nome">
-                                <div class="underline"></div>
-                            </div>
-
-                            <div class="form-group input-field margem">
-                                <label for="email"></label>
-                                <input [(ngModel)]='usuario.emailUsuario' class="form-control borda button" type="email"
-                                    name="usuario" id="usuario" placeholder="Seu email">
-                                <div class="underline"></div>
-                            </div>
-
-                            <div class="form-group borda input-field margem">
-                                <label for="foto"></label>
-                                <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control borda button" type="text"
-                                    name="usuario" id="foto" placeholder="Link da foto">
-                                <div class="underline"></div>
-                            </div>
-
-                            <div class="form-group input-field margem">
-                                <label for="senha"></label>
-                                <input (input)='confirmSenha($event)' class="form-control borda button" type="password"
-                                    senha="senha" id="senha" placeholder="Sua senha">
-                                <div class="underline"></div>
-                            </div>
-
-                            <div class="form-group input-field margem">
-                                <label for="confirmarsenha"></label>
-                                <input [(ngModel)]='usuario.senhaUsuario' class="form-control borda input-field button" type="password"
-                                    name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha">
-                                <div class="underline"></div>
-                            </div>
+            <div class="row">
+                <div class="col-md-8 col-lg-6">
 
 
+                    <div class="bg-light card-body ml-6 ml-6 borda moldura">
 
-                            <div *ngIf='verificaTipo()' class="form-group borda input-field margem">
-                                <label for="crm"></label>
-                                <input [(ngModel)]='usuario.crmUsuario' class="form-control borda button" type="text" crm="crm"
-                                    id="crm" placeholder="Informe o CRM">
-                                <div class="underline"></div>
-                            </div>
+                        <h4 class="text-center fs-18"> Cadastrar </h4>
 
-                            <div class="form-group mt-4 button">
-                                <select class="form-control borda button" style="width: 30rem;" name=tipo id="tipo"
-                                    (change)='tipoUser($event)'>
-                                    <option>Selecione um tipo de usuário</option>
-                                    <option value="normal">Normal</option>
-                                    <option value="medico">Médico</option>
-                                </select>
-                            </div>
+                        <div class="form-group input-field">
+                            <label for="nome"></label>
+                            <input [(ngModel)]='usuario.nomeUsuario' class="form-control borda button" type="text"
+                                name="nome" id="nome" placeholder="Seu nome">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="form-group input-field margem">
+                            <label for="email"></label>
+                            <input [(ngModel)]='usuario.emailUsuario' class="form-control borda button" type="email"
+                                name="usuario" id="usuario" placeholder="Seu email">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="form-group borda input-field margem">
+                            <label for="foto"></label>
+                            <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control borda button" type="text"
+                                name="usuario" id="foto" placeholder="Link da foto">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="form-group input-field margem">
+                            <label for="senha"></label>
+                            <input (input)='confirmSenha($event)' class="form-control borda button" type="password"
+                                senha="senha" id="senha" placeholder="Sua senha">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="form-group input-field margem">
+                            <label for="confirmarsenha"></label>
+                            <input [(ngModel)]='usuario.senhaUsuario' class="form-control borda input-field button"
+                                type="password" name="confirmarsenha" id="confirmarsenha"
+                                placeholder="Confirme sua senha">
+                            <div class="underline"></div>
+                        </div>
 
 
-                            <div class="d-flex justify-content-center margem2">
-                                <button class="btn  btn-info borda button" (click)='cadastrar()'>Cadastrar</button>
-                            </div>
-                            <hr>
-                            <div class="mt-2 mb-2 text-center fs-15">
-                                <p>Já possui uma conta?
-                                </p>
-                                <a routerLink="/entrar" class="text-info ">Entrar</a>
-                            </div>
+
+                        <div *ngIf='verificaTipo()' class="form-group borda input-field margem">
+                            <label for="crm"></label>
+                            <input [(ngModel)]='usuario.crmUsuario' class="form-control borda button" type="text"
+                                crm="crm" id="crm" placeholder="Informe o CRM">
+                            <div class="underline"></div>
+                        </div>
+
+                        <div class="form-group mt-4 button">
+                            <select class="form-control borda button" name=tipo id="tipo" (change)='tipoUser($event)'>
+                                <option>Selecione um tipo de usuário</option>
+                                <option value="normal">Normal</option>
+                                <option value="medico">Médico</option>
+                            </select>
+                        </div>
+
+
+                        <div class="d-flex justify-content-center margem2">
+                            <button class="btn  btn-info borda button" (click)='cadastrar()'>Cadastrar</button>
+                        </div>
+                        <hr>
+                        <div class="mt-2 mb-2 text-center fs-15">
+                            <p>Já possui uma conta?
+                            </p>
+                            <a routerLink="/entrar" class="text-info ">Entrar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
