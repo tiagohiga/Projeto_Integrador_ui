@@ -12,7 +12,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [  
-  {path:"", redirectTo:"entrar", pathMatch:"full"},
+  {path:"", redirectTo:"index", pathMatch:"full"},
   {path:"entrar", component: EntrarComponent},
   {path:"cadastrar", component: CadastrarComponent},
   {path: "inicio", component: InicioComponent},
