@@ -7,7 +7,7 @@
                 <div class="seguir">
                     <div class="card">
                         <div class="text-center">
-                            <img class="my-2 rounded-circle img-usuario-card" src="{{usuario.urlImagemUsuario}}"
+                            <img class="my-2 rounded-circle img-usuario-card" (error)='fotoperfil($event)' src="{{this.perfil}}"
                                 alt="Foto de perfil do usuário">
                         </div>
                         <hr class="w-100 m-0">
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="col-3 col-sm-2 col-md-2 col-xl-1">
                                 <div>
-                                    <img class="img-usuario rounded-circle" src="{{usuario.urlImagemUsuario}}"
+                                    <img class="img-usuario rounded-circle" (error)='fotoperfil($event)' src="{{this.perfil}}"
                                         alt="Imagem do Usuárie">
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col-3 col-sm-2 col-md-2 col-xl-1">
                                     <div>
-                                        <img class="img-usuario rounded-circle"
+                                        <img class="img-usuario rounded-circle" (error)='fotoperfil($event)'
                                             src="{{post.usuarioPostagem?.urlImagemUsuario}}" alt="Imagem do Usuárie">
                                     </div>
                                 </div>

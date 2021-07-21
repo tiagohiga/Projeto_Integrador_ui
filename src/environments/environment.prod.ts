@@ -6,6 +6,5 @@ export const environment = {
     senhaUsuario: "",
     tokenUsuario: "",
     crmUsuario: "",
-    urlCapa: "",
     urlImagemUsuario: ""
 };

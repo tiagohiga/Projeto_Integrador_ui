@@ -27,6 +27,8 @@ export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
 
+  perfil: string = environment.urlImagemUsuario
+
   constructor(
     private router: Router,
     private grupoServices: GrupoService,
@@ -52,6 +54,10 @@ export class InicioComponent implements OnInit {
       this.encontrarUsuario(this.idUser)
       this.verificarCrm()
     })
+  }
+
+  fotoperfil(event: any){
+    this.perfil = 'https://i.imgur.com/UsVZrxF.jpg'
   }
 
   encontrarUsuario(id: number){

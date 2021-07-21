@@ -4,7 +4,7 @@
     <div class="bg-card justify-content-center">
         <div class="d-flex justify-content-center" >
             <div class="container-img img-capa">
-                <img class="rounded-bottom img-capa2 shadow" (error)='fotocapa($event)' src="{{this.capa}}" alt="Foto de capa">
+                <img class="rounded-bottom img-capa2 shadow" (error)='fotocapa($event)' src="{{this.usuario.urlCapa}}" alt="Foto de capa">
             </div>
 
         </div>
@@ -12,7 +12,7 @@
             <img class="rounded-circle img-perfil" (error)='fotoperfil($event)' src="{{this.perfil}}" alt="Foto do usuarie">
 
 
-            <div class="row d-flex justify-content-center mt-3">
+            <div class="d-flex justify-content-center mt-3">
                
                 <strong class="fs-18 fs-destaque">{{status}} {{this.usuario.nomeUsuario}}
                     <a href="#modalEditar" data-toggle="modal" aria-label="Editar perfil">
@@ -58,7 +58,7 @@
                     <div class="card-deck mr-2">
                         <div class="card d-flex justify-content-center bord-card2 categoriaAnimacao"
                             id="carouselExampleControls">
-                            <a class="d-flex justify-content-center" [routerLink]="['/grupo', idUser]">
+                            <a class="d-flex justify-content-center" [routerLink]="['/grupos', item.idGrupo]">
                                 <img class="card-img-top grupo-img" src="{{item.urlImagemGrupo}}"
                                     alt="Imagem de capa do card">
                             </a>

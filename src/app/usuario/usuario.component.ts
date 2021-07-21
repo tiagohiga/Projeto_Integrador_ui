@@ -20,6 +20,7 @@ export class UsuarioComponent implements OnInit {
   idUser: number
   confirmaSenha: string
 
+
   postagem: Postagem = new Postagem ()
   idPostagem:number
 
@@ -31,7 +32,7 @@ export class UsuarioComponent implements OnInit {
 
   perfil: string = environment.urlImagemUsuario
 
-  capa: string = environment.urlCapa
+  /*capa: string = environment.urlCapa*/
 
   constructor(
     private router: Router,
@@ -50,7 +51,7 @@ export class UsuarioComponent implements OnInit {
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUser)
     this.verificarCrm()
-    console.log(environment.urlCapa)
+   
     console.log(environment.crmUsuario)
   }
 
@@ -70,7 +71,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   fotocapa(event: any){
-    this.capa = 'https://i.imgur.com/C8bVDbf.jpg'
+    this.usuario.urlCapa = 'https://i.imgur.com/C8bVDbf.jpg'
   }
 
   findByIdUsuario(id: number){
@@ -105,7 +106,7 @@ export class UsuarioComponent implements OnInit {
         environment.tokenUsuario = ""
         environment.crmUsuario = ""
         environment.urlImagemUsuario = ""
-        environment.urlCapa = ""
+       
         this.router.navigate(['/entrar'])
       })
     }
