@@ -24,8 +24,14 @@ export class UsuarioComponent implements OnInit {
   idPostagem:number
 
   status: string
-
   confirmarCrm: boolean = false
+
+  totalGrupos: number
+  page: number = 1
+
+  perfil: string = environment.urlImagemUsuario
+
+  capa: string = environment.urlCapa
 
   constructor(
     private router: Router,
@@ -44,9 +50,11 @@ export class UsuarioComponent implements OnInit {
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUser)
     this.verificarCrm()
+    console.log(environment.urlCapa)
     console.log(environment.crmUsuario)
   }
 
+  
   verificarCrm(){
     if(environment.crmUsuario != null){
       this.confirmarCrm = true
@@ -57,9 +65,19 @@ export class UsuarioComponent implements OnInit {
     }
   }
 
+  fotoperfil(event: any){
+    this.perfil = 'https://i.imgur.com/UsVZrxF.jpg'
+  }
+
+  fotocapa(event: any){
+    this.capa = 'https://i.imgur.com/C8bVDbf.jpg'
+  }
+
   findByIdUsuario(id: number){
     this.usuarioService.getByIdUsuario(id).subscribe((resp: Usuario) => {
       this.usuario = resp
+      this.totalGrupos = this.usuario.listaGrupoUsuario.length
+      console.log(this.totalGrupos)
     })
   }
 
