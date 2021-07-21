@@ -18,7 +18,6 @@ export class GrupoPaginaComponent implements OnInit {
 
   idGrupo: number
   grupo: Grupo = new Grupo()
-
   idUser = environment.idUsuario
   usuario: Usuario = new Usuario()
   usuarioCriador: Usuario = new Usuario()

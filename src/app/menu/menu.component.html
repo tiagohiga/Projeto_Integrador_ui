@@ -23,8 +23,13 @@
     <div *ngIf='exibe' class="ml-auto mr-2">
       <div class="row margem-icones">
 
+        <div class="col text-center px-2" routerLink='/sobre'>
+          <a class="fa fa-info-circle text-dark fs-icones"> </a>
+          <h6>Sobre</h6>
+        </div>
+
         <div class="col text-center px-2">
-          <a class="fa fa-users text-dark" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+          <a class="fa fa-users text-dark fs-icones" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false"> </a>
           <h6>Grupos</h6>
 
@@ -43,7 +48,7 @@
         </div>
 
         <div class="col text-center px-2" (click)="sair()">
-          <a class="fa fa-sign-out text-dark"> </a>
+          <a class="fa fa-sign-out text-dark fs-icones"> </a>
           <h6>Sair</h6>
         </div>
       </div>

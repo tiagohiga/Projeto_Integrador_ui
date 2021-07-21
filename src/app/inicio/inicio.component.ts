@@ -39,15 +39,17 @@ export class InicioComponent implements OnInit {
     if(environment.tokenUsuario == ""){
         this.router.navigate(["/entrar"])
     }
+    this.pegarTodosGrupos()
     this.encontrarUsuario(this.idUser)
     this.verificarCrm()
-    this.pegarTodosGrupos()
   }
 
   pegarTodosGrupos(){
     this.grupoServices.getAllGrupo().subscribe((resp: Grupo[]) => {
       this.listaGrupos = resp
       this.totalGrupos = this.listaGrupos.length
+      this.encontrarUsuario(this.idUser)
+      this.verificarCrm()
     })
   }
 

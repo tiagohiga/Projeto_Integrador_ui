@@ -28,14 +28,14 @@
 }
 
 .img-usuario{
-    width: 23px;
-    height: 23px;
+    width: 20px;
+    height: 20px;
     object-fit: cover;
 }
 
 .imglogo{
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     align-items: flex-end;
     object-fit: cover;
 }
@@ -71,6 +71,16 @@ h6 {
 
     .margem-icones{
         margin-right: 30px;
+    }
+
+    .fs-icones{
+        font-size: 20pt;
+    }
+
+    .img-usuario{
+        width: 29px;
+        height: 29px;
+        object-fit: cover;
     }
 }
 

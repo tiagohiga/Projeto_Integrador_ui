@@ -6,8 +6,8 @@
     position: relative;
     text-align: center;
     
-    background: rgb(237,237,237);
-    background: linear-gradient(270deg, rgba(237,237,237,0.4471989479385504) 5%, rgba(0,0,0,1) 50%, rgba(232,232,232,0.45) 95%); 
+    background: rgb(245,245,245);
+    background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 38%, rgba(148,179,255,1) 100%);
 
 }
 
@@ -23,15 +23,16 @@
     display: inline-block;
   }
   
-.img-blur:after {
+  .img-blur:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    box-shadow: inset 0 0 80px 5px #000000;
+    background-color: rgba(0, 0, 0, 0.45);
 }
+
 
 .nav>li>a.active,
 .nav>li>a:hover,
