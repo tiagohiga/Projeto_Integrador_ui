@@ -51,7 +51,7 @@ reverse = true
   entrar(idGrupo: number) {
     this.grupoService.entrarGrupo(idGrupo, this.idUser).subscribe((resp: Grupo) => {
       this.grupo = resp
-      this.alertas.showAlertInfo("Bem-vindx ao grupo" + this.grupo.temaGrupo)
+      this.alertas.showAlertInfo("Bem-vindx ao grupo " + this.grupo.temaGrupo)
       this.router.navigate(['/grupos', idGrupo])
     })
   }
