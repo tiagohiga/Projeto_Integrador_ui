@@ -42,7 +42,7 @@
 
         <div class="col text-center px-2" [routerLink]="['/user', idUser]">
           <a>
-            <img class="img-usuario rounded-circle" src="{{foto}}" alt="Imagem do usuário">
+            <img class="img-usuario rounded-circle" (error)='fotoperfil($event)' src="{{this.perfil}}" alt="Imagem do usuário">
           </a>
           <h6>Eu</h6>
         </div>

@@ -10,13 +10,11 @@
     border-style: groove;
     border-color: black;
 }
-.bg-card{
-    background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1  );
-}
+
 
 .img-capa2{
-    width: 52%;
-    height: 350px;
+    width: 1101pt;
+    height: 327pt;
  
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,8 +25,13 @@
 
 .img-capa{
     width: 100%;
-    height: 240px;
+    height: 260px;
     
+}
+
+.bg-card{
+    background: rgb(245,245,245);
+    background: linear-gradient(0deg, rgba(245,245,245,1) 0%, rgba(245,245,245,1) 38%, rgba(148,179,255,1) 100%);
 }
 
 .container-img{
@@ -36,17 +39,25 @@
    
 }
 
+.t-card{
+    width: 800pt;
+    height: 370pt;
+}
+
 .grupo-img{
-    width: 150px;
-    height: 150px;
+    width: 205px;
+    height: 200px;
     object-fit: cover;
     border-radius: 30px;
 }
 
+
 .slide-grupo{
-    width: 240px;
-    height: 320px;
+    width: 230px;
+    height: 260px;
 }
+
+
 .container-img img{
     display: block;
     margin: 0 auto;
@@ -99,6 +110,10 @@
     font-size: 16pt;
 }
 
+.fs-18{
+    font-size: 18pt;
+}
+
 .fs-20{
     font-size: 20pt;
 }
@@ -106,6 +121,10 @@
 
 .fs-26{
     font-size: 26pt;
+}
+
+.fs-40{
+    font-size: 40pt;
 }
 
 .fa-cog{

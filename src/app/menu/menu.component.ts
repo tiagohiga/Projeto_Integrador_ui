@@ -27,6 +27,8 @@ export class MenuComponent implements OnInit {
   larguraTela: number
   width: number
 
+  perfil: string = environment.urlImagemUsuario
+
   exibe: boolean = true
   exibeBusca: boolean = true
   exibeBarra: boolean = true
@@ -52,6 +54,10 @@ export class MenuComponent implements OnInit {
       this.grupo = new Grupo()
       this.router.navigate(['/inicio'])
     })
+  }
+
+  fotoperfil(event: any){
+    this.perfil = 'https://i.imgur.com/UsVZrxF.jpg'
   }
 
   sair(){
