@@ -75,30 +75,30 @@
                         </div>
 
                         <!--Exibir postagens do grupo-->
-                        <div class="card bg-muted mb-3"  *ngFor='let item of grupo.listaDePostagens'>
+                        <div class="card bg-muted mb-3"  *ngFor='let item of grupo?.listaDePostagens'>
                             <div class="card-body pl-3 pr-3 pb-0">
                                 <div class="row">
                                     <div class="col-3 col-sm-2 col-md-2 col-xl-1">
                                         <div>
                                             <img class="img-usuario rounded-circle"
-                                                src="{{item.usuarioPostagem.urlImagemUsuario}}" alt="Imagem do Usuárie">
+                                                src="{{item.usuarioPostagem?.urlImagemUsuario}}" alt="Imagem do Usuárie">
                                         </div>
                                     </div>
                                     <div class="col-9 col-sm-10 col-md-10 col-xl-11">
                                         <div>
-                                            <h6 class="m-0">{{item.usuarioPostagem.nomeUsuario}}</h6>
+                                            <h6 class="m-0">{{item.usuarioPostagem?.nomeUsuario}}</h6>
                                             <h6 class="m-0 fs-8">CRM</h6>
-                                            <small>{{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date:
+                                            <small>{{item?.data | date: 'dd/MM/yyyy'}} às {{item?.data | date:
                                                 'HH:mm'}}</small>
                                         </div>
                                     </div>
                                     <hr class="w-100 m-0">
                                     <div class="m-2">
                                         <div class="card-body p-0">
-                                            <h5 class="card-title ml-3">{{item.tituloPostagem}}
+                                            <h5 class="card-title ml-3">{{item?.tituloPostagem}}
                                             </h5>
                                             <p class="card-text ml-3">
-                                                {{item.descricaoPostagem}}
+                                                {{item?.descricaoPostagem}}
                                             </p>
                                         </div>
                                     </div>

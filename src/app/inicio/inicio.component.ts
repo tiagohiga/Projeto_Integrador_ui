@@ -18,6 +18,7 @@ export class InicioComponent implements OnInit {
 
   listaGrupos: Grupo[]
   totalGrupos: number
+  idGrupo: number
   page: number = 1
 
   usuario: Usuario = new Usuario()
@@ -60,6 +61,12 @@ export class InicioComponent implements OnInit {
   }
 
   publicarPostagem(){
+    this.postagemServices.postPostagem(this.postagem, this.idGrupo, this.idUser).subscribe((resp: Postagem) => {
+      this.postagem = resp
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso')
+      this.postagem = new Postagem()
+      this.router.navigate(['/grupos', this.idGrupo])
+    })
   }
 
   sair(){
@@ -76,6 +83,10 @@ export class InicioComponent implements OnInit {
   mudarPagina(event: number){
     this.page = event;
     this.pegarTodosGrupos()
+  }
+
+  encontrarIdGrupo(id: number){
+    this.idGrupo = id
   }
 
 }

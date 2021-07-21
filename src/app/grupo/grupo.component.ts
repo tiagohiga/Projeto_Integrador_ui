@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Grupo } from '../model/Grupo';
 import { AlertasService } from '../service/alertas.service';
 import { GrupoService } from '../service/grupo.service';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-grupo',

@@ -66,6 +66,7 @@ export class GrupoPaginaComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso')
       this.postagem = new Postagem()
+      this.findGrupoById(this.idGrupo)
     })
   }
 
