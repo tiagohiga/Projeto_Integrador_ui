@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
+import { Grupo } from '../model/Grupo';
 import { Usuario } from '../model/Usuario';
 
 @Injectable({
@@ -28,4 +29,5 @@ export class UsuarioService {
   deleteUsuario(id: number){
     return this.http.delete(`https://rssalutem.herokuapp.com/usuario/${id}`, this.token)
   }
+
 }

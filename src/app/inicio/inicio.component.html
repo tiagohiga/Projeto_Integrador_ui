@@ -1,34 +1,167 @@
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="">
-            <h2 class="mt-5 text-center">Bem-vindx a Salutem</h2>
-            <div class="card mb-3 shadow d-flex justify-content-center mt-5" *ngFor="let item of listaGrupos | paginate : {
-                itemsPerPage: 5,
-                currentPage: page,
-                totalItems: totalGrupos
-            }">
-                <img src="{{item.urlImagemGrupo}}" class="card-img-top" alt="Imagem do Grupo">
-                <div class="card-body">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-md-8">
-                            <div class="card-header titulocard"></div>
-                            <h5 class="card-title">{{item.temaGrupo}}</h5>
-                            <p class="card-text">{{item.descricaoGrupo}}</p>
-                            <p class="card-text"><small class="text-muted">{{item.categoriaGrupo}}</small></p>
-
+<div class="bg-pag">
+    <div class="container p-0">
+        <!--Corpo da home-->
+        <div class="row mt-3" style="margin: auto">
+            <!--Card Usuario-->
+            <div class="col-md-3 esconder-sobre">
+                <div class="seguir">
+                    <div class="card">
+                        <div class="text-center">
+                            <img class="my-2 rounded-circle img-usuario-card" src="{{usuario.urlImagemUsuario}}"
+                                alt="Foto de perfil do usuário">
                         </div>
-
-                        <div class="col-md-4 mt-5">
-                            <div class="d-flex justify-content-end align-items-end mr-2 mt-5">
-                                <button class="btn btn-outline-success mr-3"
-                                    [routerLink]="['/grupos', item.idGrupo]">Entrar</button>
+                        <hr class="w-100 m-0">
+                        <div class="card-body">
+                            <small>Nome do usuárie</small>
+                            <h6>{{usuario.nomeUsuario}}</h6>
+                            <div *ngIf='eMedico'>
+                                <hr class="w-100 m-0">
+                                <small>CRM</small>
+                                <h6>{{usuario.crmUsuario}}</h6>
                             </div>
+                            <hr class="w-100 m-0">
+                            <div class="my-2"><a href="" [routerLink]="['/user', idUser]">Meu perfil</a></div>
+                            <hr class="w-100 m-0">
+                            <div class="my-2"><a href="">Seus grupos</a></div>
+                        </div>
+                        <div class="card-footer py-0">
+                            <div class="my-2"><a href="" (click)='sair()'>Sair</a></div>
                         </div>
                     </div>
                 </div>
+
             </div>
-            <div class="d-flex justify-content-center">
-                <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
+            <div class="col-md-9">
+                <!--Card para postagem-->
+                <div class="card bg-muted mb-3">
+                    <div class="card-body p-3">
+                        <div class="row">
+                            <div class="col-3 col-sm-2 col-md-2 col-xl-1">
+                                <div>
+                                    <img class="img-usuario rounded-circle" src="{{usuario.urlImagemUsuario}}"
+                                        alt="Imagem do Usuárie">
+                                </div>
+                            </div>
+                            <div class="col-9 col-sm-10 col-md-10 col-xl-11 p-0 pr-2">
+                                <div class="input-group input-group-md">
+                                    <input type="text" class="form-control input-md cursor-input redondo"
+                                        id="search-church" placeholder="Comece sua publicação" data-toggle="modal"
+                                        data-target="#modalPostagem">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Exibir postagens do grupo-->
+                <div class="card bg-muted mb-3" *ngFor='let item of listaGrupos'>
+                    <div *ngFor='let post of item?.listaDePostagens'>
+                        <div class="card-body pl-3 pr-3 pb-0">
+
+                            <div class="row">
+                                <div class="col-3 col-sm-2 col-md-2 col-xl-1">
+                                    <div>
+                                        <img class="img-usuario rounded-circle"
+                                            src="{{post.usuarioPostagem?.urlImagemUsuario}}" alt="Imagem do Usuárie">
+                                    </div>
+                                </div>
+                                <div class="col-9 col-sm-10 col-md-10 col-xl-11">
+                                    <div>
+                                        <h6 class="m-0">{{post.usuarioPostagem?.nomeUsuario}}</h6>
+                                        <a href="" [routerLink]="['/grupos', item.idGrupo]">
+                                            <h6 class="m-0 fs-8">{{item.temaGrupo}}</h6>
+                                        </a>
+                                        <small>{{post.data | date: 'dd/MM/yyyy'}} às {{post.data | date:
+                                            'HH:mm'}}</small>
+                                    </div>
+                                </div>
+                                <hr class="w-100 m-0">
+                                <div class="m-2">
+                                    <div class="card-body p-0">
+                                        <h5 class="card-title ml-3">{{post.tituloPostagem}}
+                                        </h5>
+                                        <p class="card-text ml-3">{{post.descricaoPostagem}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <!--Interacao geral com a Postagem-->
+                            <button type="button" class="btn"><i class="fa fa-comments-o" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn"><i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </button>
+
+                            <!--Interacao usuario criador com a Postagem-->
+                            <button type="button" class="btn float-right"><i class="fa fa-cogs" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn float-right"><i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--Modal da Postagem-->
+    <div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPostagemLabel">Nova Postagem
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="titulo">Título da Postagem</label>
+                            <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
+                                id="titulo" placeholder="Informe o título da postagem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagemModal">Imagem</label>
+                            <input [(ngModel)]='postagem.urlImagemPostagem' name="imagemModal" type="text"
+                                class="form-control" id="imagemModal" placeholder="Insira o link de uma imagem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especialidadePost">Especialidade</label>
+                            <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidadePost"
+                                type="text" class="form-control" id="especialidadePost"
+                                placeholder="Insira a especialidade">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especialidadeModal">Grupo</label>
+                            <select id="especialidadeModal" name="especialidadeModal" class="form-control" [(ngModel)]='idGrupo' (change)='encontrarIdGrupo(idGrupo)'>
+                                <option *ngFor='let item of usuario.listaGrupoUsuario' value="{{item.idGrupo}}">
+                                    {{item.temaGrupo}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publicacao">Publicação</label>
+                            <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
+                                id="publicacao" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        (click)='publicarPostagem()'>Publicar</button>
+                </div>
             </div>
         </div>
     </div>

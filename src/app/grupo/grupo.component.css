@@ -1,28 +1,39 @@
-.card{
-
-    border-radius: 20pt;
-    border-color: black;
-    border-style: none;
-}
-
-.btn{
-    border-radius: 20pt;
-}
-
-.titulocard{
-    width: 98rem;
-}
-
-.card-img-top{
-    
-    width: 100%;
-    height: 19rem;
-    border-radius: 22pt;
-    border-color: rgb(5, 5, 5);
-    align-items: center;
+.img-grp{
+    width: 150px;
+    height: 150px;
     object-fit: cover;
 }
 
-.ft5{
-    font-size: 5rem;
+.btn-join{
+    background:  -webkit-linear-gradient(right, #94B3FF , #b3eaf1 );
+}
+
+h5{
+    color: black;
+}
+
+@media screen and (max-width: 1040px) {
+    .img-grp{
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+
+    @media screen and (max-width: 570px) {
+        small{
+            display: none;
+        }
+    
+        @media screen and (max-width: 370px){
+            .img-grp{
+                width: 30px;
+                height: 30px;
+                object-fit: cover;
+            }
+    
+            h6{
+                font-size: 8pt;
+            }
+        }
+    }
 }

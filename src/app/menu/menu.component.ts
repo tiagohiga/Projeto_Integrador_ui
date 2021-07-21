@@ -45,7 +45,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.verificarTela(window.innerWidth)
     this.tamanhoBarra()
-    console.log(this.idUser)
   }
 
   criarNovoGrupo(){
@@ -68,6 +67,7 @@ export class MenuComponent implements OnInit {
 
   pesquisarTema(){
     this.router.navigate(['/grupo', this.pesquisaTema])
+    this.pesquisaTema = ''
     !this.exibe
   }
 
@@ -106,7 +106,7 @@ export class MenuComponent implements OnInit {
         this.width = 30
         this.exibeBarra = true
       }else{
-        this.width = 100
+        this.width = 80
         this.exibeBarra = true
       }
     }else{
@@ -115,7 +115,7 @@ export class MenuComponent implements OnInit {
         this.width = 0
       }else{
         this.exibeBarra = true
-        this.width = 100
+        this.width = 80
       }
     }
   }

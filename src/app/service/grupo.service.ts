@@ -33,9 +33,6 @@ export class GrupoService {
     }
     
     entrarGrupo(idGrupo: number, idUsuario: number): Observable<Grupo>{
-      this.token = {
-        headers: new HttpHeaders().set('Authorization', environment.tokenUsuario)
-      }
       return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/entrar/${idGrupo}/${idUsuario}`, this.token)
     }
 
@@ -45,7 +42,7 @@ export class GrupoService {
 
     putGrupo(grupo: Grupo,id: number): Observable<Grupo>{
 
-      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/alterar/${id}`,grupo, this.token)
+      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/alterar/${id}`, grupo, this.token)
     }
 
     deleteGrupo(id: number){

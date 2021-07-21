@@ -1,88 +1,213 @@
-<div class="container-fluid px-0">
-    <img class="w-100 capa-grupo" src="{{this.grupo.urlImagemGrupo}}" alt="Imagem de capa do grupo">
-</div>
+<div class="bg-pag">
+<div class="container-fluid p-0">
+     <!--Capa do grupo-->
 
-<div class="container mt-3 mb-3">
-    <div class="row d-flex justify-content-center">
-        <div class="col-md-12">
-            <div class="card bg-muted">
-                <div class="card-body p-3">
-                    <div class="input-group input-group-md">
-                        <input type="text" class="form-control input-md cursor-input redondo" id="search-church"
-                            placeholder="Comece sua publicação" data-toggle="modal" data-target="#modalPostagem">
+     <div class="img-container">
+        <div class="img-blur">
+            <img src="{{grupo.urlImagemGrupo}}" alt="Imagem de capa do grupo" class="h-max img-fluid">
+            <div class="blur"></div>
+        </div>
+        <div class="txt-grupo">
+            <h2 class="text-white">{{grupo.temaGrupo}}</h2>
+            <h6 class="text-white esconder-desc">{{grupo.descricaoGrupo}}</h6>
+        </div>
+    </div>
+</div>
+    <div class="container-fluid p-0 ">
+        <!--Corpo do grupo-->
+        <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="flex-sm-fill text-sm-center nav-link active" id="pills-home-tab" data-toggle="pill"
+                    href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="flex-sm-fill text-sm-center nav-link" id="pills-sobre-tab" data-toggle="pill"
+                    href="#pills-sobre" role="tab" aria-controls="pills-sobre" aria-selected="false">Sobre</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <!--Home do grupo-->
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row" style="margin: auto">
+                    <div class="col-md-3 esconder-sobre">
+                        <div class="seguir">
+                            <div class="card">
+                                <h5 class="ml-3 mt-2">Sobre</h5>
+                                <hr class="w-100 m-0">
+                                <div class="card-body">
+                                    <small>Nome do grupo</small>
+                                    <h6>{{grupo.temaGrupo}}</h6>
+                                    <small>Especialidade</small>
+                                    <h6>{{grupo.categoriaGrupo}}</h6>
+                                    <hr class="w-100 m-0">
+                                    <small>Criado por</small>
+                                    <h6>{{usuarioCriador.nomeUsuario}}</h6>
+                                    <small>CRM</small>
+                                    <h6>{{usuarioCriador.crmUsuario}}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-9">
+                        <!--Card para postagem-->
+                        <div class="card bg-muted mb-3">
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-3 col-sm-2 col-md-2 col-xl-1">
+                                        <div>
+                                            <img class="img-usuario rounded-circle" src="{{usuario.urlImagemUsuario}}"
+                                                alt="Imagem do Usuárie">
+                                        </div>
+                                    </div>
+                                    <div class="col-9 col-sm-10 col-md-10 col-xl-11 p-0 pr-2">
+                                        <div class="input-group input-group-md">
+                                            <input type="text" class="form-control input-md cursor-input redondo"
+                                                id="search-church" placeholder="Comece sua publicação"
+                                                data-toggle="modal" data-target="#modalPostagem">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--Exibir postagens do grupo-->
+                        <div class="card bg-muted mb-3"  *ngFor='let item of grupo?.listaDePostagens'>
+                            <div class="card-body pl-3 pr-3 pb-0">
+                                <div class="row">
+                                    <div class="col-3 col-sm-2 col-md-2 col-xl-1">
+                                        <div>
+                                            <img class="img-usuario rounded-circle"
+                                                src="{{item.usuarioPostagem?.urlImagemUsuario}}" alt="Imagem do Usuárie">
+                                        </div>
+                                    </div>
+                                    <div class="col-9 col-sm-10 col-md-10 col-xl-11">
+                                        <div>
+                                            <h6 class="m-0">{{item.usuarioPostagem?.nomeUsuario}}</h6>
+                                            <h6 class="m-0 fs-8">CRM</h6>
+                                            <small>{{item?.data | date: 'dd/MM/yyyy'}} às {{item?.data | date:
+                                                'HH:mm'}}</small>
+                                        </div>
+                                    </div>
+                                    <hr class="w-100 m-0">
+                                    <div class="m-2">
+                                        <div class="card-body p-0">
+                                            <h5 class="card-title ml-3">{{item?.tituloPostagem}}
+                                            </h5>
+                                            <p class="card-text ml-3">
+                                                {{item?.descricaoPostagem}}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <!--Interacao geral com a Postagem-->
+                                <button type="button" class="btn"><i class="fa fa-comments-o" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn"><i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                </button>
+
+                                <!--Interacao usuario criador com a Postagem-->
+                                <button type="button" class="btn float-right"><i class="fa fa-cogs"
+                                        aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn float-right"><i class="fa fa-trash"
+                                        aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Sobre do grupo-->
+            <div class="tab-pane fade" id="pills-sobre" role="tabpanel" aria-labelledby="pills-sobre-tab">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="text-center">
+                                    <h5 class="text-center font-weight-bold">Grupo criado por</h5>
+                                    <img class="img-medic rounded-circle" src="{{usuarioCriador.urlImagemUsuario}}"
+                                        alt="Imagem criador do grupo">
+                                    <h6 class="text-center font-weight-bold">{{usuarioCriador.nomeUsuario}}
+                                    </h6>
+                                    <hr class="w-100">
+                                    <h6 class="text-left">CRM: {{usuarioCriador.crmUsuario}}</h6>
+                                    <h6 class="text-left">Especilidade: {{grupo.categoriaGrupo}}
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="text-center font-weight-bold">Sobre o grupo</h5>
+                                <hr class="w-100">
+                                <h6 class="font-italic">Nome do grupo</h6>
+                                <h5 class="card-title">{{grupo.temaGrupo}}</h5>
+                                <h6 class="font-italic">Descrição</h6>
+                                <p class="card-text">{{grupo.descricaoGrupo}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="container mb-3">
-    <div class="row d-flex justify-content-center" *ngFor='let item of grupo.listaDePostagens'>
-        <div class="col-md-12">
-            <div class="card mb-3">
-                <div class="card-header">
-                    {{item.usuarioPostagem.nomeUsuario}}
+
+    <!--Modal de Postagem-->
+
+    <div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPostagemLabel">Nova Postagem
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <img src="{{item.urlImagemPostagem}}" class="card-img-top" alt="Imagem da postagem">
-                <div class="card-body">
-                    <h5 class="card-title">{{item.tituloPostagem}}</h5>
-                    <p class="card-text">{{item.descricaoPostagem}}</p>
-                    <p class="card-text"><small class="text-muted">Especialidade: {{item.especialidadePostagem}}</small>
-                    </p>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="titulo">Título da Postagem</label>
+                            <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
+                                id="titulo" placeholder="Informe o título da postagem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imagem">Imagem</label>
+                            <input [(ngModel)]='postagem.urlImagemPostagem' name="imagem" type="text"
+                                class="form-control" id="imagem" placeholder="Insira o link de uma imagem">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="especialidade">Especialidade</label>
+                            <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade"
+                                type="text" class="form-control" id="especialidade"
+                                placeholder="Insira a especialidade">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publicacao">Publicação</label>
+                            <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
+                                id="publicacao" rows="3"></textarea>
+                        </div>
+                    </form>
                 </div>
-                <div class="card-footer text-muted">
-                    {{item.data | date:'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        (click)='publicarPostagem()'>Publicar</button>
                 </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal de Postagem-->
-
-<div class="modal fade" id="modalPostagem" tabindex="-1" aria-labelledby="modalPostagemLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalPostagemLabel">Nova Postagem
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="titulo">Título da Postagem</label>
-                        <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
-                            id="titulo" placeholder="Informe o título da postagem">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="imagem">Imagem</label>
-                        <input [(ngModel)]='postagem.urlImagemPostagem' name="imagem" type="text" class="form-control"
-                            id="imagem" placeholder="Insira o link de uma imagem">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="especialidade"></label>
-                        <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade" type="text"
-                            class="form-control" id="especialidade" placeholder="Insira a especialidade">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="publicacao">Publicação</label>
-                        <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
-                            id="publicacao" rows="3"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal"
-                    (click)='publicarPostagem()'>Publicar</button>
             </div>
         </div>
     </div>
