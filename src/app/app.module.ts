@@ -21,7 +21,8 @@ import { GrupoDeletarComponent } from './deletar/grupo-deletar/grupo-deletar.com
 import { UsuarioComponent } from './usuario/usuario.component';
 import { GrupoPaginaComponent } from './grupo-pagina/grupo-pagina.component';
 import { AlertasComponent } from './alertas/alertas.component';
-import { NgxPaginationModule } from 'ngx-pagination'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { IndexComponent } from './index/index.component'
 
 
 
@@ -41,7 +42,8 @@ import { NgxPaginationModule } from 'ngx-pagination'
     UsuarioComponent,
     GrupoPaginaComponent,
     AlertasComponent,
-    SobreComponent
+    SobreComponent,
+    IndexComponent
 
   ],
   imports: [

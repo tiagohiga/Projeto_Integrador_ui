@@ -9,6 +9,7 @@ import { GrupoComponent } from './grupo/grupo.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [  
   {path:"", redirectTo:"entrar", pathMatch:"full"},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: "grupo/:tema", component: GrupoComponent},
 
   {path: "grupo", component: GrupoComponent},
-  {path: "sobre", component: SobreComponent}
+  {path: "sobre", component: SobreComponent},
+  {path: "index", component: IndexComponent}
 ];
 
 @NgModule({
