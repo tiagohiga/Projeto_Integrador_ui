@@ -33,7 +33,7 @@ export class GrupoService {
     }
     
     entrarGrupo(idGrupo: number, idUsuario: number): Observable<Grupo>{
-      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/entrar/${idGrupo}/${idUsuario}`, this.token)
+      return this.http.put<Grupo>(`https://rssalutem.herokuapp.com/grupo/entrar/${idGrupo}/${idUsuario}`, null, this.token)
     }
 
     sairGrupo(idGrupo: number, idUsuario: number): Observable<Grupo>{

@@ -51,9 +51,8 @@ reverse = true
   entrar(idGrupo: number) {
     this.grupoService.entrarGrupo(idGrupo, this.idUser).subscribe((resp: Grupo) => {
       this.grupo = resp
-      this.alertas.showAlertSuccess("Grupo criado com sucesso")
-      this.grupo = new Grupo()
-      this.router.navigate(['/grupo'])
+      this.alertas.showAlertInfo("Bem-vindx ao grupo" + this.grupo.temaGrupo)
+      this.router.navigate(['/grupos', idGrupo])
     })
   }
 
