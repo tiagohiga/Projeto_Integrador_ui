@@ -25,6 +25,9 @@ export class GrupoPaginaComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagem: Postagem[]
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -64,7 +67,6 @@ export class GrupoPaginaComponent implements OnInit {
   publicarPostagem(){
     this.postagemService.postPostagem(this.postagem, this.idGrupo, this.idUser).subscribe((resp: Postagem) => {
       this.postagem = resp
-      this.alertas.showAlertSuccess('Postagem realizada com sucesso')
       this.postagem = new Postagem()
       this.findGrupoById(this.idGrupo)
     })

@@ -51,7 +51,6 @@ reverse = true
   entrar(idGrupo: number) {
     this.grupoService.entrarGrupo(idGrupo, this.idUser).subscribe((resp: Grupo) => {
       this.grupo = resp
-      this.alertas.showAlertInfo("Bem-vindx ao grupo " + this.grupo.temaGrupo)
       this.router.navigate(['/grupos', idGrupo])
     })
   }
@@ -71,7 +70,6 @@ reverse = true
 
   deletarGrupo(id: number){
     this.grupoService.deleteGrupo(id).subscribe(() =>{
-      this.alertas.showAlertInfo('Grupo removido com sucesso')
       this.router.navigate(['/inicio'])
 
     })

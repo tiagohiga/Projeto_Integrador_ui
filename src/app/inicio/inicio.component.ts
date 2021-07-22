@@ -29,6 +29,9 @@ export class InicioComponent implements OnInit {
 
   perfil: string = environment.urlImagemUsuario
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private grupoServices: GrupoService,
