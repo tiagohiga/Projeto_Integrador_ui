@@ -10,10 +10,7 @@
 
 ## Salutem
 
-A Rede social Salutem, surgiu com o seu
-maior objetivo  minimizar a carência de acesso à informações verídicas, democratizar
-o acesso à informações de saúde e intenção de minimizar a propagação das
-Fake News.Esse fênomeno que vem sendo agravado cada vez mais em redes sociais. 
+A Rede Social Salutem tem como seu principal objetivo democratizar o acesso à informações relacionadas a saúde, diminuindo o compartilhamento de fake news. A Salutem possui um  diferencial de conectar profissionais da saúde verificados para atender os diversos usuários, contando com diversas temáticas para a resolução de dúvidas geradas pelas incertezas e facilitando o acesso a conteúdos especificos. O usuário pode frequentar diversos grupos para compartilhar e solucionar suas dúvidas em um ambiente seguro e acessível.
 
 A Aplicação é baseada nos pilares do Objetivo de Desenvolvimento Sustentável pela Onu 
 (ODS-3) de Saúde e bem-estar, que tem por objetivo:
