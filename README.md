@@ -1,4 +1,11 @@
-# ProjetoIntegradorUi
+# Projeto Integrador Salutem
+## Integrantes Grupo 5
+
+👀 Giullia Maria Ramos da Silva
+😎 Gustavo de Oliveira Thomaz
+🌵Isadora Fernandes Oliveira
+🤔Tiago Pereira Higa Martins
+😜Vinicius Rocha dos Santos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
 
