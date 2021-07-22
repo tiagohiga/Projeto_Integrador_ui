@@ -21,7 +21,7 @@
             </li>
             <li class="nav-item" role="presentation">
                 <a class="flex-sm-fill text-sm-center nav-link" id="pills-sobre-tab" data-toggle="pill"
-                    href="#pills-sobre" role="tab" aria-controls="pills-sobre" aria-selected="false">Sobre</a>
+                    href="#pills-sobre" role="tab" aria-controls="pills-sobre" aria-selected="false" (click)='this.verificarBotoes()'>Sobre</a>
             </li>
         </ul>
 
@@ -144,6 +144,12 @@
                                     <h6 class="text-left">CRM: {{usuarioCriador.crmUsuario}}</h6>
                                     <h6 class="text-left">Especilidade: {{grupo.categoriaGrupo}}
                                     </h6>
+                                    <div *ngIf='this.exibirBarra'>
+                                        <a href="" class="mr-5"><i class="fa fa-cogs 3x" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="" (click)='this.deletarGrupo()'><i class="fa fa-trash 3x" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-body">

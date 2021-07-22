@@ -28,6 +28,8 @@ export class GrupoPaginaComponent implements OnInit {
   key = 'data'
   reverse = true
 
+  exibirBarra: boolean
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -74,6 +76,21 @@ export class GrupoPaginaComponent implements OnInit {
 
   findUsuarioCriador(){
     this.usuarioCriador = this.grupo.listaDeUsuarios.find(x => x!== undefined)!
+  }
+
+  verificarBotoes(){
+    if(this.usuarioCriador.idUsuario == this.usuario.idUsuario){
+      this.exibirBarra = true
+    }else{
+      this.exibirBarra = false
+    }
+  }
+
+  deletarGrupo(){
+    console.log(this.idGrupo)
+    this.grupoService.deleteGrupo(this.idGrupo).subscribe(() => {
+      this.router.navigate(['/inicio'])
+    })
   }
 
 }
