@@ -45,6 +45,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.verificarTela(window.innerWidth)
     this.tamanhoBarra()
+    this.pesquisaTema = ''
   }
 
   criarNovoGrupo(){

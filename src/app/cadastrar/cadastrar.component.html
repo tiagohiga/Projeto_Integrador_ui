@@ -30,6 +30,7 @@
                             <input [(ngModel)]='usuario.nomeUsuario' class="form-control borda button" type="text"
                                 name="nome" id="nome" placeholder="Seu nome">
                             <div class="underline"></div>
+                            <small class="fs-8">(*) - 5 a 45 caracteres</small>
                         </div>
 
                         <div class="form-group input-field margem">
@@ -37,6 +38,7 @@
                             <input [(ngModel)]='usuario.emailUsuario' class="form-control borda button" type="email"
                                 name="usuario" id="usuario" placeholder="Seu email">
                             <div class="underline"></div>
+                            <small class="fs-8">(*) - 5 a 45 caracteres</small>
                         </div>
 
                         <div class="form-group borda input-field margem">
@@ -44,6 +46,7 @@
                             <input [(ngModel)]='usuario.urlImagemUsuario' class="form-control borda button" type="text"
                                 name="usuario" id="foto" placeholder="Link da foto">
                             <div class="underline"></div>
+                            <small class="fs-8">(*)</small>
                         </div>
 
                         <div class="form-group input-field margem">
@@ -51,6 +54,7 @@
                             <input (input)='confirmSenha($event)' class="form-control borda button" type="password"
                                 senha="senha" id="senha" placeholder="Sua senha">
                             <div class="underline"></div>
+                            <small class="fs-8">(*) - Minímo de 8 caracteres</small>
                         </div>
 
                         <div class="form-group input-field margem">
@@ -77,6 +81,7 @@
                                 <option value="medico">Médico</option>
                             </select>
                         </div>
+                        <small class="fs-8">Os campos marcados com (*) são obrigatórios</small>
 
 
                         <div class="d-flex justify-content-center margem2">

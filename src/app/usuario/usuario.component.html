@@ -88,7 +88,7 @@
         <div class="card w-75">
             <h4 class="text-center mt-3 mb-3">Suas postagens</h4>
             <hr class="w-100 text-muted mt-0">
-            <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario'>
+            <div class="mr-2 ml-2" *ngFor='let item of usuario.listaPostagemUsuario | orderBy: key : reverse'>
 
                 <div class="card mb-3">
                     <div class="card-header">
@@ -154,7 +154,7 @@
 
                     <div class="form-group">
                         <label for="fotocapa">Foto de Capa</label>
-                        <input [(ngModel)]='usuario.urlCapa' class="form-control" type="text" name="usuario" id="foto"
+                        <input [(ngModel)]='usuario.urlCapa' class="form-control" type="text" name="usuario" id="urlCapa"
                             placeholder="Link da foto">
                     </div>
 

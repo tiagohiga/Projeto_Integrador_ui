@@ -32,6 +32,9 @@ export class UsuarioComponent implements OnInit {
 
   perfil: string = environment.urlImagemUsuario
 
+  key = 'data'
+  reverse = true
+
   /*capa: string = environment.urlCapa*/
 
   constructor(
@@ -51,8 +54,6 @@ export class UsuarioComponent implements OnInit {
     this.idUser = this.route.snapshot.params['id']
     this.findByIdUsuario(this.idUser)
     this.verificarCrm()
-   
-    console.log(environment.crmUsuario)
   }
 
   
@@ -78,7 +79,6 @@ export class UsuarioComponent implements OnInit {
     this.usuarioService.getByIdUsuario(id).subscribe((resp: Usuario) => {
       this.usuario = resp
       this.totalGrupos = this.usuario.listaGrupoUsuario.length
-      console.log(this.totalGrupos)
     })
   }
 

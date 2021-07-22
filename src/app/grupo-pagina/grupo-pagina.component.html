@@ -74,7 +74,7 @@
                         </div>
 
                         <!--Exibir postagens do grupo-->
-                        <div class="card bg-muted mb-3"  *ngFor='let item of grupo?.listaDePostagens'>
+                        <div class="card bg-muted mb-3"  *ngFor='let item of grupo?.listaDePostagens | orderBy: key : reverse'>
                             <div class="card-body pl-3 pr-3 pb-0">
                                 <div class="row">
                                     <div class="col-3 col-sm-2 col-md-2 col-xl-1">
@@ -177,9 +177,10 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="titulo">Título da Postagem</label>
+                            <label for="titulo">Título da Postagem <small class="fs-8">(*)</small></label>
                             <input [(ngModel)]='postagem.tituloPostagem' name="titulo" type="text" class="form-control"
                                 id="titulo" placeholder="Informe o título da postagem">
+                                <small class="fs-8">5 a 45 caracteres</small>
                         </div>
 
                         <div class="form-group">
@@ -189,18 +190,21 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="especialidade">Especialidade</label>
+                            <label for="especialidade">Especialidade <small class="fs-8">(*)</small></label>
                             <input [(ngModel)]='postagem.especialidadePostagem' type="text" name="especialidade"
                                 type="text" class="form-control" id="especialidade"
                                 placeholder="Insira a especialidade">
+                                
                         </div>
 
                         <div class="form-group">
-                            <label for="publicacao">Publicação</label>
+                            <label for="publicacao">Publicação <small class="fs-8">(*)</small></label>
                             <textarea [(ngModel)]='postagem.descricaoPostagem' name="publicacao" class="form-control"
                                 id="publicacao" rows="3"></textarea>
+                                <small class="fs-8">5 a 255 caracteres</small>
                         </div>
                     </form>
+                    <small class="fs-8">Campos marcado com (*) são obrigatórios</small>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
